@@ -1,9 +1,10 @@
 import * as express from 'express';
 import './db/mongoose';
-// import {addRouter} from './AddUser';
+import {postRouter} from './add';
 
 const app = express();
-// app.use(addRouter);
+app.use(express.json());
+app.use(postRouter);
 
 const port = process.env.PORT || 3000;
 

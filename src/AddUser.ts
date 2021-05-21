@@ -63,7 +63,7 @@ yargs.command({
 });
 
 
-async function add(name: string, lastname: string, age: number, email: string, password: string) {
+function add(name: string, lastname: string, age: number, email: string, password: string) {
   /* mongoose.connect(mongodb_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

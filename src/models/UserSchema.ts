@@ -5,14 +5,17 @@ import {UserInterface} from './UserInterface';
 export const UserSchema = new mongoose.Schema({
   name: {
     type: String,
+    trim: true,
     required: true,
   },
   lastName: {
     type: String,
+    trim: true,
     required: true,
   },
   age: {
     type: Number,
+    trim: true,
     validate: (value: number) => {
       if (!((value > 1) && (value < 100)) && (value - Math.floor(value) == 0)) {
         throw new Error('Age must be a positive integer');
@@ -21,6 +24,7 @@ export const UserSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    trim: true,
     required: true,
     unique: true,
     validate: (value: string) => {
@@ -31,6 +35,7 @@ export const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
+    trim: true,
     required: true,
   },
 });
