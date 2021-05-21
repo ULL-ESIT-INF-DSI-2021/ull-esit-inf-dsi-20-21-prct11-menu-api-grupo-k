@@ -8,6 +8,7 @@
     "start": "node dist/index.js",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "oristart": "tsc-watch --onSuccess \"node dist/index2.js\"",
     "doc": "typedoc",
     "start_mongo": "sudo /home/usuario/mongodb/bin/mongod --dbpath /home/usuario/mongodb-data/",
     "stop_mongo": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""

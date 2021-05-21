@@ -1,16 +1,15 @@
 /* eslint-disable new-cap */
-/* import * as express from 'express';
-import {User} from '../../models/UserSchema';
+import * as express from 'express';
+import {plateModel} from '../../models/plates/PlatesSchema';
 
 export const postRouterPlates = express.Router();
 
 postRouterPlates.post('/plates', (req, res) => {
-  const user = new User(req.body);
+  const plate = new plateModel(req.body);
 
-  user.save().then((user) => {
-    res.status(201).send(user);
+  plate.save().then((plate) => {
+    res.status(201).send(plate);
   }).catch((error) => {
     res.status(400).send(error);
   });
 });
-*/

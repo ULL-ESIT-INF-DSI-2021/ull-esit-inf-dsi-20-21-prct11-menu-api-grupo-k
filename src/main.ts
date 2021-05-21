@@ -80,7 +80,7 @@ ingredientes.clear();
 ingredientes.set(harina_maiz, 10);
 
 ingredientes.set(queso_gouda, 10);
-const plato_arepitas = new Plate('Arepitas con queso', ingredientes, Category.entree);
+export const plato_arepitas = new Plate('Arepitas con queso', ingredientes, Category.entree);
 
 ingredientes.clear();
 ingredientes.set(lechuga, 20);

@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 import {Document} from 'mongoose';
-import {AlimentGroup} from '../../class/aliment/aliment';
+import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
 import {NutritionalComposition} from '../../class/interfaces/nutritional_composition';
+import {Category} from '../../class/plate/plate';
 
 export interface PlatesInterface extends Document, NutritionalComposition {
     name: string,
@@ -14,5 +15,7 @@ export interface PlatesInterface extends Document, NutritionalComposition {
     fiber: number,
     water: number,
     price: number,
-    predominantAlimentGroup: [AlimentGroup, number]
+    predominantAlimentGroup: [AlimentGroup, number],
+    ingredients: Map<Aliment, number>,
+    category: Category
   }
