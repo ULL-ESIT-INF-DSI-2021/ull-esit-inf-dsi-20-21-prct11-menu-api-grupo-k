@@ -8,10 +8,16 @@ const queso_mozarella = new Aliment('Queso mozarella', 1, 21.1, 20, 0, 353, 0, 0
 
 const ingredientes = new Map<Aliment, number>();
 
+const test = new Map<string, number>();
+test.set('pollo', 20);
+// test.set('arroz', 10);
+
 ingredientes.clear();
 ingredientes.set(queso_mozarella, 20);
 
 ingredientes.set(queso_gouda, 10);
 const plato_arepitas = new Plate('Arepitas con queso', ingredientes, Category.entree);
 
-console.log(JSON.stringify(plato_arepitas));
+console.log(JSON.stringify(test));
+
+console.log(plato_arepitas);

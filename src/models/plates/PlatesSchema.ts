@@ -105,7 +105,7 @@ export const PlatesSchema = new mongoose.Schema({
       alimentGroup: String,
       quantity: Number,
     }),
-    required: true,
+    required: false,
   },
   ingredients: {
     type: Map,
@@ -113,7 +113,7 @@ export const PlatesSchema = new mongoose.Schema({
       aliment: String,
       quantity: Number,
     }),
-    required: true,
+    required: false,
   },
   category: {
     type: String,
