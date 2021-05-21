@@ -73,7 +73,7 @@ function add(name: string, lastname: string, age: number, email: string, passwor
 
   const axios = require('axios').default;
 
-  axios.post('https://grupo-k-p11-menu-app.herokuapp.com/plates', usuario).then(function(response: any) {
+  axios.post('https://grupo-k-p11-menu-app.herokuapp.com/aliments', usuario).then(function(response: any) {
     console.log(response.status);
     mongoose.connection.close();
   }).catch(function(error: any) {
