@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
 import * as yargs from 'yargs';
-import {UserInterface} from './UserInterface';
+import {UserInterface} from './models/UserInterface';
 import {UserSchema} from './models/UserSchema';
 
 /**
