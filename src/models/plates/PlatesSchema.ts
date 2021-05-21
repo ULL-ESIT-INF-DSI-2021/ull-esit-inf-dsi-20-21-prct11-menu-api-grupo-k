@@ -3,13 +3,27 @@ import * as mongoose from 'mongoose';
 import {PlatesInterface} from './PlatesInterface';
 
 const subPreGroupSchema = new mongoose.Schema({
-  alimentGroup: String,
-  quantity: Number,
+  alimentGroup: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
 });
 
 const subIngredientsSchema = new mongoose.Schema({
-  aliment: String,
-  quantity: Number,
+  aliment: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
 });
 
 export const PlatesSchema = new mongoose.Schema({
