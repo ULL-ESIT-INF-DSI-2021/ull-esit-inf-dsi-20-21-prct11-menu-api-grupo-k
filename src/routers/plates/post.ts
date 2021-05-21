@@ -1,10 +1,10 @@
 /* eslint-disable new-cap */
 import * as express from 'express';
-import {User} from '../models/UserSchema';
+import {User} from '../../models/UserSchema';
 
-export const postRouter = express.Router();
+export const postRouterPlates = express.Router();
 
-postRouter.post('', (req, res) => {
+postRouterPlates.post('/plates', (req, res) => {
   const user = new User(req.body);
 
   user.save().then((user) => {
