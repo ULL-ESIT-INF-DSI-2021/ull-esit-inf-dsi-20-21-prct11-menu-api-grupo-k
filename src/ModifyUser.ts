@@ -2,7 +2,7 @@
 import * as mongoose from 'mongoose';
 import * as yargs from 'yargs';
 import {UserInterface} from './UserInterface';
-import {UserSchema} from './UserSchema';
+import {UserSchema} from './models/UserSchema';
 
 /**
  * modify command

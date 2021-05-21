@@ -1,14 +1,16 @@
-import { Aliment, AlimentGroup } from "../aliment/aliment";
-import { NutritionalComposition } from "../interfaces/nutritional_composition";
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+import {Aliment, AlimentGroup} from '../aliment/aliment';
+import {NutritionalComposition} from '../interfaces/nutritional_composition';
 
-export enum Category {entree, maincourse, secondcourse, dessert} 
+export enum Category {entree, maincourse, secondcourse, dessert}
 
 /**
  * Clase abstracta para representar platos
  */
- export class Plate implements NutritionalComposition {
+export class Plate implements NutritionalComposition {
    [x: string]: any;
-    /**
+   /**
      * Variables para almacenar la composicion nutricional de cada plato
      */
       public calories: number = 0;
@@ -36,7 +38,7 @@ export enum Category {entree, maincourse, secondcourse, dessert}
       /**
        * Funcion para calcular el precio total del plato segun el precio de cada alimento
        */
-       private calculatePrice() {
+      private calculatePrice() {
         this.ingredients.forEach((value, key) => {
           this.price += key.getPriceOfAliment();
         });
@@ -83,20 +85,20 @@ export enum Category {entree, maincourse, secondcourse, dessert}
        * @returns String con la estructura del plato
        */
       print(): string {
-        let output = "";
-        output += "Nombre: " + this.getName() + "\n";
-        output += "Precio: " + this.getPrice() + "\n";
-        output += "Ingredientes: \n" + this.getIngredients() + "\n";
-        output += "Composicion Nutricional: " + "\n";
-        output += "Calorias: " + this.getCalories() + "\n";
-        output += "Proteinas: " + this.getProtein() + "\n";
-        output += "Grasas: " + this.getFats() + "\n";
-        output += "Carbohidratos: " + this.getCarbohydrates() + "\n";
-        output += "Almidon: " + this.getStarch() + "\n";
-        output += "Azucar: " + this.getSugars() + "\n";
-        output += "Fibra: " + this.getFiber() + "\n";
-        output += "Agua: " + this.getWater() + "\n";
-        output += "Grupo de alimento predominante: " + this.getPredominantAlimentGroup() + "\n";
+        let output = '';
+        output += 'Nombre: ' + this.getName() + '\n';
+        output += 'Precio: ' + this.getPrice() + '\n';
+        output += 'Ingredientes: \n' + this.getIngredients() + '\n';
+        output += 'Composicion Nutricional: ' + '\n';
+        output += 'Calorias: ' + this.getCalories() + '\n';
+        output += 'Proteinas: ' + this.getProtein() + '\n';
+        output += 'Grasas: ' + this.getFats() + '\n';
+        output += 'Carbohidratos: ' + this.getCarbohydrates() + '\n';
+        output += 'Almidon: ' + this.getStarch() + '\n';
+        output += 'Azucar: ' + this.getSugars() + '\n';
+        output += 'Fibra: ' + this.getFiber() + '\n';
+        output += 'Agua: ' + this.getWater() + '\n';
+        output += 'Grupo de alimento predominante: ' + this.getPredominantAlimentGroup() + '\n';
         return output;
       }
       /**
@@ -126,7 +128,7 @@ export enum Category {entree, maincourse, secondcourse, dessert}
        * @returns categoria del plato, entrada, primer plato, segundo plato o postre.
        */
       getCategory() {
-          return this.category;
+        return this.category;
       }
 
       /**
@@ -134,9 +136,9 @@ export enum Category {entree, maincourse, secondcourse, dessert}
        * @returns String con los ingredientes del plato
        */
       getIngredients(): string {
-        let output = "";
+        let output = '';
         this.ingredients.forEach((value, key) => {
-          output += "Ingrediente: " + key.getName() + ", Cantidad: " + value + "\n";
+          output += 'Ingrediente: ' + key.getName() + ', Cantidad: ' + value + '\n';
         });
         return output;
       }
@@ -196,6 +198,4 @@ export enum Category {entree, maincourse, secondcourse, dessert}
       getWater(): number {
         return this.water;
       }
-      
-  }
-  
+}

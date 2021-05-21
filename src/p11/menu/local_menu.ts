@@ -1,16 +1,14 @@
-import { Category, Plate } from "../plate/plate";
-import { Menu } from "./menu";
+/* eslint-disable camelcase */
+import {Category, Plate} from '../plate/plate';
+import {Menu} from './menu';
 
 export class LocalMenu extends Menu {
-   
-    
-    constructor(name: string) {
-      super(name);
-      
-    }
+  constructor(name: string) {
+    super(name);
+  }
 
-    setMenu(plates: Plate[]) : boolean {
-        let menu_rules: boolean[] = [false, false, false, false];
+  setMenu(plates: Plate[]) : boolean {
+    const menu_rules: boolean[] = [false, false, false, false];
     let cont: number = 0;
     if (plates.length >= 3) {
       for (let i = 0; i < plates.length; i++) {
@@ -47,7 +45,5 @@ export class LocalMenu extends Menu {
       this.verify_menu = false;
       return false;
     }
-    }
-  
+  }
 }
-  

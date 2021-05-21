@@ -1,6 +1,8 @@
-import { AlimentGroup } from "../aliment/aliment";
-import { NutritionalComposition } from "../interfaces/nutritional_composition";
-import { Plate} from "../plate/plate";
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
+import {AlimentGroup} from '../aliment/aliment';
+import {NutritionalComposition} from '../interfaces/nutritional_composition';
+import {Plate} from '../plate/plate';
 
 export abstract class Menu implements NutritionalComposition {
   protected plates: Plate[] = [];
@@ -14,7 +16,7 @@ export abstract class Menu implements NutritionalComposition {
   public fiber: number = 0;
   public water:number = 0;
   private alimentGroupList : [AlimentGroup, number][] = [];
-  public verify_menu: boolean = false; 
+  public verify_menu: boolean = false;
 
   constructor(private name: string) {}
 
@@ -24,7 +26,7 @@ export abstract class Menu implements NutritionalComposition {
   /**
      * Metodo que calcula el precio total del menu en base a los platos que lo compone.
      */
-   protected calculatePrice() {
+  protected calculatePrice() {
     this.price = 0;
     this.plates.forEach((key) => {
       this.price += key.getPrice();
@@ -162,32 +164,29 @@ export abstract class Menu implements NutritionalComposition {
    * @returns
    */
   print() : string {
-    let output = "";
-    output += "Nombre: " + this.name + "\n";
-    output += "Precio: " + this.getPrice() + "\n";
-    output += "Platos: \n";
+    let output = '';
+    output += 'Nombre: ' + this.name + '\n';
+    output += 'Precio: ' + this.getPrice() + '\n';
+    output += 'Platos: \n';
     this.plates.forEach((element) => {
-      output += "Nombre : " + element.getName() + "\n Precio : " + element.getPrice() + "\n";
-    }); + "\n";
-    output += "Composicion Nutricional: " + "\n";
-    output += "Calorias: " + this.getCalories() + "\n";
-    output += "Proteinas: " + this.getProtein() + "\n";
-    output += "Grasas: " + this.getFats() + "\n";
-    output += "Carbohidratos: " + this.getCarbohydrates() + "\n";
-    output += "Almidon: " + this.getStarch() + "\n";
-    output += "Azucar: " + this.getSugars() + "\n";
-    output += "Fibra: " + this.getFiber() + "\n";
-    output += "Agua: " + this.getWater() + "\n";
-    output += "Grupo de alimento predominante: " + this.getAlimentGroupList() + "\n";
+      output += 'Nombre : ' + element.getName() + '\n Precio : ' + element.getPrice() + '\n';
+    }); + '\n';
+    output += 'Composicion Nutricional: ' + '\n';
+    output += 'Calorias: ' + this.getCalories() + '\n';
+    output += 'Proteinas: ' + this.getProtein() + '\n';
+    output += 'Grasas: ' + this.getFats() + '\n';
+    output += 'Carbohidratos: ' + this.getCarbohydrates() + '\n';
+    output += 'Almidon: ' + this.getStarch() + '\n';
+    output += 'Azucar: ' + this.getSugars() + '\n';
+    output += 'Fibra: ' + this.getFiber() + '\n';
+    output += 'Agua: ' + this.getWater() + '\n';
+    output += 'Grupo de alimento predominante: ' + this.getAlimentGroupList() + '\n';
     return output;
   }
-    
 }
-  
-  
-  
-  
-  /*let menu_rules: boolean[] = [false, false, false, false];
+
+
+/* let menu_rules: boolean[] = [false, false, false, false];
     let cont: number = 0;
     if (plates.length >= 3) {
       for (let i = 0; i < plates.length; i++) {

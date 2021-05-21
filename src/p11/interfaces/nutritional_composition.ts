@@ -1,7 +1,7 @@
 /**
  * interfaz que describe la compiscion de un alimento
  */
- export interface NutritionalComposition {
+export interface NutritionalComposition {
     protein: number;
     fats: number;
     carbohydrates: number;

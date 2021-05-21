@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import validator from 'validator';
+import {UserInterface} from './UserInterface';
 
 export const UserSchema = new mongoose.Schema({
   name: {
@@ -33,3 +34,5 @@ export const UserSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+export const User = mongoose.model<UserInterface>('User', UserSchema);
