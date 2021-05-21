@@ -124,11 +124,11 @@ export const PlatesSchema = new mongoose.Schema({
   },
   predominantAlimentGroup: {
     type: subPreGroupSchema,
-    required: false,
+    required: true,
   },
   ingredients: {
     type: [subIngredientsSchema],
-    required: false,
+    required: true,
   },
   category: {
     type: String,
@@ -138,26 +138,3 @@ export const PlatesSchema = new mongoose.Schema({
 });
 
 export const plateModel = mongoose.model<PlatesInterface>('Plate', PlatesSchema);
-
-/*
-const user = new User({
-  socialMediaHandles: {}
-});
-
-// Good
-user.socialMediaHandles.set('github', 'vkarpov15');
-// Works too
-user.set('socialMediaHandles.twitter', '@code_barbarian');
-// Bad, the `myspace` property will **not** get saved
-user.socialMediaHandles.myspace = 'fail';
-
-// 'vkarpov15'
-console.log(user.socialMediaHandles.get('github'));
-// '@code_barbarian'
-console.log(user.get('socialMediaHandles.twitter'));
-// undefined
-user.socialMediaHandles.github;
-
-// Will only save the 'github' and 'twitter' properties
-user.save();
-*/

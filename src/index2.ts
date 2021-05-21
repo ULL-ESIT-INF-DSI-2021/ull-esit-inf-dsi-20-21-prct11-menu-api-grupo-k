@@ -2,8 +2,8 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 import {Aliment, AlimentGroup} from './class/aliment/aliment';
-import {Category, Plate} from './class/plate/plate';
-import {plateModel, PlatesSchema} from './models/plates/PlatesSchema';
+// import {Category, Plate} from './class/plate/plate';
+import {PlatesSchema} from './models/plates/PlatesSchema';
 import * as mongoose from 'mongoose';
 import './db/mongoose';
 
@@ -35,7 +35,7 @@ ingredientes.clear();
 ingredientes.set(queso_mozarella, 20);
 
 ingredientes.set(queso_gouda, 10);
-const plato_arepitas = new Plate('Arepitas con queso', ingredientes, Category.entree);
+// const plato_arepitas = new Plate('Arepitas con queso', ingredientes, Category.entree);
 
 
 const plate = mongoose.model('plates', PlatesSchema);
