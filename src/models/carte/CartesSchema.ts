@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
-import { CartesInterface } from './CartesInterface';
+import {CartesInterface} from './CartesInterface';
 
 export const CartesSchema = new mongoose.Schema({
   name: {

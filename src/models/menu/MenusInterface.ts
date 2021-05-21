@@ -1,10 +1,12 @@
+/* eslint-disable max-len */
+/* eslint-disable camelcase */
 import {Document} from 'mongoose';
-import { AlimentGroup } from '../aliment/aliment';
-import { NutritionalComposition } from '../interfaces/nutritional_composition';
-import { Plate } from '../plate/plate';
+import {AlimentGroup} from '../../class/aliment/aliment';
+import {NutritionalComposition} from '../../class/interfaces/nutritional_composition';
+import {Plate} from '../../class/plate/plate';
 
 export interface MenusInterface extends Document, NutritionalComposition {
-    name: string, 
+    name: string,
     plates: Plate[],
     price: number,
     protein: number,
@@ -16,5 +18,5 @@ export interface MenusInterface extends Document, NutritionalComposition {
     fiber: number,
     water:number,
     alimentGroupList : [AlimentGroup, number][];
-    verify_menu: boolean; 
+    verify_menu: boolean;
   }

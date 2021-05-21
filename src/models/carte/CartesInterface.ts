@@ -1,9 +1,9 @@
 import {Document} from 'mongoose';
-import { LocalMenu } from '../menu/local_menu';
-import { Plate } from '../plate/plate';
+import {LocalMenu} from '../../class/menu/local_menu';
+import {Plate} from '../../class/plate/plate';
 
 export interface CartesInterface extends Document {
-    name: string, 
+    name: string,
     plates: Plate[],
-    menus: LocalMenu[],   
+    menus: LocalMenu[],
   }

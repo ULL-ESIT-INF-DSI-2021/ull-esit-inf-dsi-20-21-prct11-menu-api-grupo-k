@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import * as express from 'express';
+/* import * as express from 'express';
 import {User} from '../../models/UserSchema';
 
 export const postRouterPlates = express.Router();
@@ -13,3 +13,4 @@ postRouterPlates.post('/plates', (req, res) => {
     res.status(400).send(error);
   });
 });
+*/
