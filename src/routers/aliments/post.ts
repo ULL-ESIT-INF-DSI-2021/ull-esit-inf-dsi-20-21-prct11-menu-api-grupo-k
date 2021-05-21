@@ -1,12 +1,11 @@
 /* eslint-disable new-cap */
 import * as express from 'express';
-import {aliment} from '../../models/aliments/AlimentsSchema';
-// import {User} from '../../models/UserSchema';
+import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const postRouterAliments = express.Router();
 
 postRouterAliments.post('/aliments', (req, res) => {
-  const user = new aliment(req.body);
+  const user = new alimentModel(req.body);
 
   user.save().then((user) => {
     res.status(201).send(user);

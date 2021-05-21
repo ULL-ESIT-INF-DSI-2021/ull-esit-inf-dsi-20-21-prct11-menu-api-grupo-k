@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
-import validator from 'validator';
 import {AlimentsInterface} from './AlimentsInterface';
 
 export const AlimentSchema = new mongoose.Schema({
@@ -9,36 +8,111 @@ export const AlimentSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  lastName: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  age: {
+  protein: {
     type: Number,
     trim: true,
+    required: true,
     validate: (value: number) => {
-      if (!((value > 1) && (value < 100)) && (value - Math.floor(value) == 0)) {
-        throw new Error('Age must be a positive integer');
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
       }
     },
   },
-  email: {
+  fats: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  carbohydrates: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  calories: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  starch: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  sugars: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  fiber: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  water: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  price: {
+    type: Number,
+    trim: true,
+    required: true,
+    validate: (value: number) => {
+      if (value < 0) {
+        throw new Error('Error valores mayores que 0');
+      }
+    },
+  },
+  city: {
     type: String,
     trim: true,
     required: true,
-    unique: true,
-    validate: (value: string) => {
-      if (!validator.isEmail(value)) {
-        throw new Error('Invalid email format');
-      }
-    },
   },
-  password: {
+  locality: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  aliment_group: {
     type: String,
     trim: true,
     required: true,
   },
 });
 
-export const aliment = mongoose.model<AlimentsInterface>('Aliment', AlimentSchema);
+export const alimentModel = mongoose.model<AlimentsInterface>('Aliment', AlimentSchema);

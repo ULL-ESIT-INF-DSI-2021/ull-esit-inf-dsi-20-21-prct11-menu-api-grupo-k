@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-import {Aliment, AlimentGroup} from './aliment/aliment';
-import {Carte} from './carte/carte';
-import {LocalMenu} from './menu/local_menu';
-import {Menu} from './menu/menu';
-import {PerzonalisedMenu} from './menu/personalized_menu';
-import {Order} from './order/order';
-import {Category, Plate} from './plate/plate';
+import {Aliment, AlimentGroup} from './class/aliment/aliment';
+import {Carte} from './class/carte/carte';
+import {LocalMenu} from './class/menu/local_menu';
+import {Menu} from './class/menu/menu';
+import {PerzonalisedMenu} from './class/menu/personalized_menu';
+import {Order} from './class/order/order';
+import {Category, Plate} from './class/plate/plate';
 
 const pollo = new Aliment('Pollo', 10, 20, 12, 0, 32, 0, 0, 0, 70.3, 'Tenerife', 'Santa Cruz', AlimentGroup.meat);
 const patatas_fritas = new Aliment('Patatas fritas', 3, 6.8, 20, 66.8, 472, 65.8, 0.9, 1, 5.9, 'Tenerife', 'Santa Cruz', AlimentGroup.vegetables);
