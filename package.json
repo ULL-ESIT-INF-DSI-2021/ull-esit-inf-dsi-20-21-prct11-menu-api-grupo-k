@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "tsc",
+    "start": "node dist/index.js",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "start": "tsc-watch --onSuccess \"node dist/main.js\"",
     "doc": "typedoc",
     "start_mongo": "sudo /home/usuario/mongodb/bin/mongod --dbpath /home/usuario/mongodb-data/",
     "stop_mongo": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\""
+  },
+  "engines": {
+    "node": "16.x"
   },
   "keywords": [],
   "author": "",
