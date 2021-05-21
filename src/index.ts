@@ -1,6 +1,6 @@
 import * as express from 'express';
 import './db/mongoose';
-import {postRouter} from './add';
+import {postRouter} from './routers/post';
 
 const app = express();
 app.use(express.json());

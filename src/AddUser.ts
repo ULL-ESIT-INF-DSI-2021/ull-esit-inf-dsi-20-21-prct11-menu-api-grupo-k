@@ -1,22 +1,11 @@
 /* eslint-disable new-cap */
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
-import * as mongoose from 'mongoose';
 import * as yargs from 'yargs';
 import {User} from './models/UserSchema';
-
-const mongodb_url = process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/menu-app';
-
-mongoose.connect(mongodb_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-}).then(() => {
-  console.log('Connected to the database');
-}).catch(() => {
-  console.log('Something went wrong when conecting to the database');
-});
+import {UserInterface} from './models/UserInterface';
+import * as mongoose from 'mongoose';
+import './db/mongoose';
 
 /**
  * add command
@@ -64,17 +53,7 @@ yargs.command({
 
 
 function add(name: string, lastname: string, age: number, email: string, password: string) {
-  /* mongoose.connect(mongodb_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }).then(() => {
-    console.log('Connected to the database');
-  }).catch(() => {
-    console.log('Something went wrong when conecting to the database');
-  });*/
-  let usuario;
+  let usuario: UserInterface;
   if (age != 0) {
     usuario = new User({
       name: name,
@@ -91,11 +70,15 @@ function add(name: string, lastname: string, age: number, email: string, passwor
       password: password,
     });
   }
-  usuario.save().then((result) => {
-    console.log(result);
-    // mongoose.connection.close();
-  }).catch((error) => {
+
+  const axios = require('axios').default;
+
+  axios.post('https://grupo-k-p11-menu-app.herokuapp.com/alim', usuario).then(function(response: any) {
+    console.log(response.status);
+    mongoose.connection.close();
+  }).catch(function(error: any) {
     console.log(error);
+    mongoose.connection.close();
   });
 }
 
