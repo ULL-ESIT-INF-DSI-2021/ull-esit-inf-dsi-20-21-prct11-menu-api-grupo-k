@@ -4,7 +4,7 @@ import {User} from './models/UserSchema';
 
 export const postRouter = express.Router();
 
-postRouter.post('/users', (req, res) => {
+postRouter.post('/add', (req, res) => {
   const user = new User(req.body);
 
   user.save().then((user) => {
