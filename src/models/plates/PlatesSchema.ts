@@ -1,7 +1,16 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
-import {Schema} from 'mongoose';
 import {PlatesInterface} from './PlatesInterface';
+
+const subPreGroupSchema = new mongoose.Schema({
+  alimentGroup: String,
+  quantity: Number,
+});
+
+const subIngredientsSchema = new mongoose.Schema({
+  aliment: String,
+  quantity: Number,
+});
 
 export const PlatesSchema = new mongoose.Schema({
   name: {
@@ -100,16 +109,11 @@ export const PlatesSchema = new mongoose.Schema({
     },
   },
   predominantAlimentGroup: {
-    alimentGroup: String,
-    quantity: Number,
+    type: subPreGroupSchema,
     required: false,
   },
   ingredients: {
-    type: Map,
-    of: new Schema({
-      aliment: String,
-      quantity: Number,
-    }),
+    type: [subIngredientsSchema],
     required: false,
   },
   category: {
