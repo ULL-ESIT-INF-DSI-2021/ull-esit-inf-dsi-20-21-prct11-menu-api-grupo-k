@@ -133,27 +133,4 @@ export const MenusSchema = new mongoose.Schema({
   },
 });
 
-export const menu = mongoose.model<MenusInterface>('Menu', MenusSchema);
-
-/*
-const user = new User({
-  socialMediaHandles: {}
-});
-
-// Good
-user.socialMediaHandles.set('github', 'vkarpov15');
-// Works too
-user.set('socialMediaHandles.twitter', '@code_barbarian');
-// Bad, the `myspace` property will **not** get saved
-user.socialMediaHandles.myspace = 'fail';
-
-// 'vkarpov15'
-console.log(user.socialMediaHandles.get('github'));
-// '@code_barbarian'
-console.log(user.get('socialMediaHandles.twitter'));
-// undefined
-user.socialMediaHandles.github;
-
-// Will only save the 'github' and 'twitter' properties
-user.save();
-*/
+export const menuModel = mongoose.model<MenusInterface>('Menu', MenusSchema);
