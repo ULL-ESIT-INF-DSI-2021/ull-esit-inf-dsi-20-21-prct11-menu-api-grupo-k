@@ -40,4 +40,4 @@ export const UserSchema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model<UserInterface>('User', UserSchema);
+export const User = mongoose.model<UserInterface>('Plate', UserSchema);
