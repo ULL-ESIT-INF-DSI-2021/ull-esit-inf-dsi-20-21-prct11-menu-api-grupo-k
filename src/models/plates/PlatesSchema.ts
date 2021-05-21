@@ -100,11 +100,8 @@ export const PlatesSchema = new mongoose.Schema({
     },
   },
   predominantAlimentGroup: {
-    type: Map,
-    of: new Schema({
-      alimentGroup: String,
-      quantity: Number,
-    }),
+    alimentGroup: String,
+    quantity: Number,
     required: false,
   },
   ingredients: {
