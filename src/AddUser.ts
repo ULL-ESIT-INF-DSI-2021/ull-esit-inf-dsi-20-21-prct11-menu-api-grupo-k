@@ -2,10 +2,12 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
 import * as yargs from 'yargs';
-import {User} from './models/UserSchema';
-import {UserInterface} from './models/UserInterface';
+// import {User} from './models/UserSchema';
+// import {UserInterface} from './models/UserInterface';
 import * as mongoose from 'mongoose';
 import './db/mongoose';
+import {AlimentsInterface} from './models/aliments/AlimentsInterface';
+import {aliment} from './models/aliments/AlimentsSchema';
 
 /**
  * add command
@@ -53,9 +55,9 @@ yargs.command({
 
 
 function add(name: string, lastname: string, age: number, email: string, password: string) {
-  let usuario: UserInterface;
+  let usuario: AlimentsInterface;
   if (age != 0) {
-    usuario = new User({
+    usuario = new aliment({
       name: name,
       lastName: lastname,
       age: age,
@@ -63,7 +65,7 @@ function add(name: string, lastname: string, age: number, email: string, passwor
       password: password,
     });
   } else {
-    usuario = new User({
+    usuario = new aliment({
       name: name,
       lastName: lastname,
       email: email,
