@@ -270,6 +270,8 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
  Dado los siguientes platos introducidos hasta el momento:
    ![pollo](img/crud/plate/bbdd.png)
+   ![pollo](img/crud/plate/bbdd2.png)
+   ![pollo](img/crud/plate/bbdd3.png)
 
 - READ
   - GET 200
@@ -279,23 +281,21 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 - CREATE
   - POST 201
   ![get200](img/crud/plate/create/201.png)
-  ![post200](img/crud/plate/create/postSucces.png)
+  ![post200](img/crud/plate/create/success.png)
   - POST 404 (al ya estar creado el plato)
   ![get200](img/crud/plate/create/400.png)
 - UPDATE
 
   - PATCH 200
   ![get200](img/crud/plate/update/200.png)
-  ![get200](img/crud/plate/update/updatesucced.png)
-  - PATCH 400 (al no poseer la información necesaria)
-  ![get200](img/crud/plate/update/400.png)
+  ![get200](img/crud/plate/update/success.png)
   - PATCH 404 (al no existir el alimento)
   - ![get200](img/crud/plate/update/404.png)
   
 - DELETE
   - DELETE 200
   ![get200](img/crud/plate/delete/200.png)
-  ![get200](img/crud/plate/delete/deleteSucced.png)
+  ![get200](img/crud/plate/delete/success.png)
     - DELETE 404 (al no existir el alimento)
   - ![get200](img/crud/plate/delete/404.png)
 
