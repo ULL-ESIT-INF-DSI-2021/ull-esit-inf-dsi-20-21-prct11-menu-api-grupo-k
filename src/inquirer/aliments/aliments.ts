@@ -141,3 +141,28 @@ export async function postAlimentPrompt(): Promise<void> {
     waitPrompt();
   })();
 }
+
+export async function getAlimentPrompt(): Promise<void> {
+  console.clear();
+  const nombre = await inquirer.prompt({
+    type: 'input',
+    name: 'add',
+    message: 'Nombre: ',
+  });
+  type nameType = {
+    name: string,
+    }
+  const name: nameType = {name: nombre['add']};
+  const axios = require('axios').default;
+  (async () => {
+    axios.get(LinkAliments, name).then(function(response: any) {
+      console.log('Respuesta del servidor: ' + response.status);
+      console.log('Alimento:');
+      console.log(response.data);
+    }).catch(function(error: any) {
+      console.log(error);
+    });
+    await delay(800);
+    waitPrompt();
+  })();
+}

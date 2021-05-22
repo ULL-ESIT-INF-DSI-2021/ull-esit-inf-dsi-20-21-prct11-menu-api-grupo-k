@@ -5,10 +5,14 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 export const getRouterAliments = express.Router();
 
 getRouterAliments.get('/aliments', async (req, res) => {
-  const filter = req.body.name?{name: req.body.name.toString()}:{};
+  if (!req.body.name) {
+    return res.status(400).send({
+      error: 'A name must be provided',
+    });
+  }
 
   try {
-    const aliment = await alimentModel.find(filter);
+    const aliment = await alimentModel.find({name: req.body.name.toString()});
 
     if (aliment.length !== 0) {
       return res.send(aliment);

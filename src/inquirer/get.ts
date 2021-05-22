@@ -3,6 +3,7 @@
 /* eslint-disable max-len */
 import * as inquirer from 'inquirer';
 import {mainPrompt, waitPrompt} from '../index';
+import {getAlimentPrompt} from './aliments/aliments';
 
 // Ver Menu
 enum ViewMenu {
@@ -21,10 +22,7 @@ export async function viewPrompt(): Promise<void> {
   });
   switch (answers['command']) {
     case ViewMenu.Alimentos:
-      console.clear();
-      console.log('\nAlimentos:');
-
-      waitPrompt();
+      getAlimentPrompt();
       break;
     case ViewMenu.Platos:
       console.clear();
