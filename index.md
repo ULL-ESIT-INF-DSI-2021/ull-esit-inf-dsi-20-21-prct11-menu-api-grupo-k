@@ -236,7 +236,7 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
 #### Aliments
 
- Dado los siguientes alimentos introducidos hasta el momento:
+ Dado los siguientes alimentos introducidos hasta el momento:\
    ![pollo](img/crud/aliment/post/bbdd.png)
 
 - READ
@@ -267,7 +267,7 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
 #### Plate
 
- Dado los siguientes platos introducidos hasta el momento:
+ Dado los siguientes platos introducidos hasta el momento:\
    ![pollo](img/crud/plate/bbdd.png)
    ![pollo](img/crud/plate/bbdd2.png)
    ![pollo](img/crud/plate/bbdd3.png)
@@ -300,7 +300,7 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
 #### Menu
 
- Dado los siguientes menus introducidos hasta el momento:
+ Dado los siguientes menus introducidos hasta el momento:\
    ![pollo](img/crud/menu/bbdd.png)
 
 - READ
