@@ -13,6 +13,10 @@ import {getRouterMenu} from './routers/menu/get';
 import {deleteRouterMenu} from './routers/menu/delete';
 import {patchRouterMenu} from './routers/menu/patch';
 
+export const LinkAliments = 'https://grupo-k-p11-menu-app.herokuapp.com/aliments';
+export const LinkPlates = 'https://grupo-k-p11-menu-app.herokuapp.com/plates';
+export const LinkMenus = 'https://grupo-k-p11-menu-app.herokuapp.com/menus';
+
 const app = express();
 app.use(express.json());
 // Aliments
