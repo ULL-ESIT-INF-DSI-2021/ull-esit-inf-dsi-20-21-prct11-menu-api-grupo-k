@@ -5,7 +5,7 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 export const getRouterAliments = express.Router();
 
 getRouterAliments.get('/aliments', async (req, res) => {
-  const filter = req.query.name?{name: req.query.name.toString()}:{};
+  const filter = req.body.name?{name: req.body.name.toString()}:{};
 
   try {
     const aliment = await alimentModel.find(filter);

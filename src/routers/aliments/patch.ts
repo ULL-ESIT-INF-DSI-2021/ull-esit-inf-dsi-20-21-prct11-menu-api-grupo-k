@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
-/* import * as express from 'express';
+import * as express from 'express';
 import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const patchRouter = express.Router();
@@ -13,7 +13,7 @@ patchRouter.patch('/aliments', async (req, res) => {
   }
 
   const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group'];
-  const actualUpdates = Object.keys(req.fats);
+  const actualUpdates = Object.keys(req.body);
   const isValidUpdate =
     actualUpdates.every((update) => allowedUpdates.includes(update));
 
@@ -25,7 +25,7 @@ patchRouter.patch('/aliments', async (req, res) => {
 
   try {
     const aliment =
-    await alimentModel.findOneAndUpdate({name: req.query.name.toString()}, req.fats, {
+    await alimentModel.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
       new: true,
       runValidators: true,
     });
@@ -42,7 +42,7 @@ patchRouter.patch('/aliments', async (req, res) => {
 
 patchRouter.patch('/aliments/:id', async (req, res) => {
   const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group'];
-  const actualUpdates = Object.keys(req.fats);
+  const actualUpdates = Object.keys(req.body);
   const isValidUpdate =
       actualUpdates.every((update) => allowedUpdates.includes(update));
 
@@ -53,7 +53,7 @@ patchRouter.patch('/aliments/:id', async (req, res) => {
   }
 
   try {
-    const aliment = await alimentModel.findByIdAndUpdate(req.params.id, req.fats, {
+    const aliment = await alimentModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -66,4 +66,4 @@ patchRouter.patch('/aliments/:id', async (req, res) => {
   } catch (error) {
     return res.status(400).send(error);
   }
-});*/
+});
