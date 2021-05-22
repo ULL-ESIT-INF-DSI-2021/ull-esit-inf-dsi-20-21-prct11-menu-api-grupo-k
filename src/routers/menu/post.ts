@@ -4,7 +4,7 @@ import {menuModel} from '../../models/menu/MenusSchema';
 
 export const postRouterMenu = express.Router();
 
-postRouterMenu.post('/menu', (req, res) => {
+postRouterMenu.post('/menus', (req, res) => {
   const menu = new menuModel(req.body);
 
   menu.save().then((menu) => {
