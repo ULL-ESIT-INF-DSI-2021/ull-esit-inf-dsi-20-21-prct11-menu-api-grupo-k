@@ -5,7 +5,7 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 export const deleteRouterAliments = express.Router();
 
 deleteRouterAliments.delete('/aliments', async (req, res) => {
-  if (!req.query.name) {
+  if (!req.body.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -13,21 +13,7 @@ deleteRouterAliments.delete('/aliments', async (req, res) => {
 
   try {
     const aliment =
-      await alimentModel.findOneAndDelete({name: req.query.name.toString()});
-
-    if (!aliment) {
-      return res.status(404).send();
-    }
-
-    return res.send(aliment);
-  } catch (error) {
-    return res.status(400).send();
-  }
-});
-
-deleteRouterAliments.delete('/aliments/:id', async (req, res) => {
-  try {
-    const aliment = await alimentModel.findByIdAndDelete(req.params.id);
+      await alimentModel.findOneAndDelete({name: req.body.name.toString()});
 
     if (!aliment) {
       return res.status(404).send();

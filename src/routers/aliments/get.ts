@@ -19,17 +19,3 @@ getRouterAliments.get('/aliments', async (req, res) => {
     return res.status(500).send();
   }
 });
-
-getRouterAliments.get('/aliments/:id', async (req, res) => {
-  try {
-    const aliment = await alimentModel.findById(req.params.id);
-
-    if (!aliment) {
-      return res.status(404).send();
-    }
-
-    return res.send(aliment);
-  } catch (error) {
-    return res.status(500).send();
-  }
-});

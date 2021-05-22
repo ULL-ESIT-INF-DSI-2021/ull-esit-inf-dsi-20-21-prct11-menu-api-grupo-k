@@ -3,6 +3,7 @@ import './db/mongoose';
 import {postRouterAliments} from './routers/aliments/post';
 import {getRouterAliments} from './routers/aliments/get';
 import {deleteRouterAliments} from './routers/aliments/delete';
+import {patchRouterAliments} from './routers/aliments/patch';
 import {postRouterPlates} from './routers/plates/post';
 import {postRouterMenu} from './routers/menu/post';
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(postRouterAliments);
 app.use(getRouterAliments);
 app.use(deleteRouterAliments);
+app.use(patchRouterAliments);
 
 app.use(postRouterPlates);
 app.use(postRouterMenu);
