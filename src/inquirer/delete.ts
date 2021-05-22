@@ -2,7 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import * as inquirer from 'inquirer';
-import {mainPrompt, waitPrompt} from '../index';
+import {mainPrompt} from '../index';
+import {deleteAlimentPrompt} from './aliments/aliments';
 
 // Delete Menu
 enum DeleteMenu {
@@ -20,24 +21,8 @@ export async function deletePrompt(): Promise<void> {
     choices: Object.values(DeleteMenu),
   });
   switch (answers['command']) {
-    case DeleteMenu.Platos:
-      const flag = false;
-      console.clear();
-      console.log('Nombre del plato a eliminar: ');
-      const nombre = await inquirer.prompt({
-        type: 'input',
-        name: 'name',
-        message: 'Nombre: ',
-      });
-      if (flag) {
-        console.clear();
-        console.log('Plato eliminado!');
-        waitPrompt();
-      } else {
-        console.clear();
-        console.log('Plato no encontrado..');
-        waitPrompt();
-      }
+    case DeleteMenu.Alimentos:
+      deleteAlimentPrompt();
       break;
     case DeleteMenu.Volver:
       mainPrompt();

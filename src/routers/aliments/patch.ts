@@ -6,7 +6,7 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 export const patchRouterAliments = express.Router();
 
 patchRouterAliments.patch('/aliments', async (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -25,7 +25,7 @@ patchRouterAliments.patch('/aliments', async (req, res) => {
 
   try {
     const aliment =
-    await alimentModel.findOneAndUpdate({name: req.body.name.toString()}, req.body, {
+    await alimentModel.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
       new: true,
       runValidators: true,
     });

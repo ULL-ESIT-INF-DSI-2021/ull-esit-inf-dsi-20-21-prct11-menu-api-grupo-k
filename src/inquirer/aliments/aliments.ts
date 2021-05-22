@@ -149,20 +149,36 @@ export async function getAlimentPrompt(): Promise<void> {
     name: 'add',
     message: 'Nombre: ',
   });
-  const aliment = new alimentModel({
-    name: nombre['add'],
-  });
-  /* type nameType = {
-    name: string,
-    }
-  const name: nameType = {name: nombre['add']};*/
   const axios = require('axios');
   (async () => {
-    axios.get(LinkAliments, aliment).then(function(response: any) {
+    axios.get(`${LinkAliments}?name=${nombre['add']}`).then(function(response: any) {
       console.log('Respuesta del servidor: ' + response.status);
       console.log('Alimento:\n');
       console.log(response.data);
     }).catch(function(error: any) {
+      console.log('Alimento no encontrado!');
+      console.log(error.message);
+    });
+    await delay(800);
+    waitPrompt();
+  })();
+}
+
+export async function deleteAlimentPrompt(): Promise<void> {
+  console.clear();
+  const nombre = await inquirer.prompt({
+    type: 'input',
+    name: 'add',
+    message: 'Nombre: ',
+  });
+  const axios = require('axios');
+  (async () => {
+    axios.delete(`${LinkAliments}?name=${nombre['add']}`).then(function(response: any) {
+      console.log('Respuesta del servidor: ' + response.status);
+      console.log('Alimento eliminado!');
+      console.log(response.data);
+    }).catch(function(error: any) {
+      console.log('Alimento no encontrado!');
       console.log(error.message);
     });
     await delay(800);
