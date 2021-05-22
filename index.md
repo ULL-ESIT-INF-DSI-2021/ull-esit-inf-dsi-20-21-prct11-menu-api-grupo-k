@@ -237,14 +237,14 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 #### Aliments
 
  Dado los siguientes alimentos introducidos hasta el momento:
-   ![pollo](img/crud/pollo.png)
-   ![carne](img/crud/carne.png)
+   ![pollo](img/crud/aliment/post/bbdd.png)
+
 
 - READ
   - GET 200
-  ![get200](img/crud/aliment/get200.png)
+  ![pollo](img/crud/aliment/post/read/200.png)
   - GET 404
-  ![get404](img/crud/aliment/get404.png)
+  ![pollo](img/crud/aliment/post/read/404.png)
 - CREATE
   - POST 201
   ![get200](img/crud/aliment/post/201.png)
@@ -254,19 +254,17 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 - UPDATE
 
   - PATCH 200
-  ![get200](img/crud/aliment/update/200.png)
-  ![get200](img/crud/aliment/update/updateSucces.png)
-  - PATCH 400 (al no poseer la información necesaria)
-  ![get200](img/crud/aliment/update/400.png)
+  ![pollo](img/crud/aliment/post/update/200.png)
+  ![pollo](img/crud/aliment/post/update/success.png)
   - PATCH 404 (al no existir el alimento)
-  - ![get200](img/crud/aliment/update/404.png)
+  ![pollo](img/crud/aliment/post/update/404.png)
   
 - DELETE
   - DELETE 200
-  ![get200](img/crud/aliment/delete/202.png)
-  ![get200](img/crud/aliment/delete/deleteSucced.png)
+  ![pollo](img/crud/aliment/post/delete/200.png)
+  ![pollo](img/crud/aliment/post/delete/success.png)
     - DELETE 404 (al no existir el alimento)
-  - ![get200](img/crud/aliment/delete/404.png)
+  ![pollo](img/crud/aliment/post/delete/404.png)
 
 #### Plate
 
