@@ -6,7 +6,7 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 export const patchRouterPlates = express.Router();
 
 patchRouterPlates.patch('/plates', async (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -25,7 +25,7 @@ patchRouterPlates.patch('/plates', async (req, res) => {
 
   try {
     const plate =
-    await plateModel.findOneAndUpdate({name: req.body.name.toString()}, req.body, {
+    await plateModel.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
       new: true,
       runValidators: true,
     });

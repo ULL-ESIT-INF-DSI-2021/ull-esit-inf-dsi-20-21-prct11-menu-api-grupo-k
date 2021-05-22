@@ -5,7 +5,7 @@ import {menuModel} from '../../models/menu/MenusSchema';
 export const getRouterMenu = express.Router();
 
 getRouterMenu.get('/menus', async (req, res) => {
-  const filter = req.body.name?{name: req.body.name.toString()}:{};
+  const filter = req.query.name?{name: req.query.name.toString()}:{};
 
   try {
     const menu = await menuModel.find(filter);

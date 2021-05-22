@@ -7,7 +7,7 @@ import {menuModel} from '../../models/menu/MenusSchema';
 export const patchRouterMenu = express.Router();
 
 patchRouterMenu.patch('/menus', async (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -26,7 +26,7 @@ patchRouterMenu.patch('/menus', async (req, res) => {
 
   try {
     const menu =
-    await menuModel.findOneAndUpdate({name: req.body.name.toString()}, req.body, {
+    await menuModel.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
       new: true,
       runValidators: true,
     });

@@ -5,7 +5,7 @@ import {menuModel} from '../../models/menu/MenusSchema';
 export const deleteRouterMenu = express.Router();
 
 deleteRouterMenu.delete('/menus', async (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -13,7 +13,7 @@ deleteRouterMenu.delete('/menus', async (req, res) => {
 
   try {
     const menu =
-      await menuModel.findOneAndDelete({name: req.body.name.toString()});
+      await menuModel.findOneAndDelete({name: req.query.name.toString()});
 
     if (!menu) {
       return res.status(404).send();

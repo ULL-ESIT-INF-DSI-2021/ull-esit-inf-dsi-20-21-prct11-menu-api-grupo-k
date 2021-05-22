@@ -5,14 +5,7 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 export const getRouterAliments = express.Router();
 
 getRouterAliments.get('/aliments', async (req, res) => {
-  /* if (!req.query.name) {
-    return res.status(400).send({
-      error: 'A name must be provided',
-    });
-  }*/
-
   const filter = req.query.name?{name: req.query.name.toString()}:{};
-
 
   try {
     const aliment = await alimentModel.find(filter);

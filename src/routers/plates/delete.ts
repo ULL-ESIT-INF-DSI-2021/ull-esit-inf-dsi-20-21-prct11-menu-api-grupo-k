@@ -5,7 +5,7 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 export const deleteRouterPlates = express.Router();
 
 deleteRouterPlates.delete('/plates', async (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).send({
       error: 'A name must be provided',
     });
@@ -13,7 +13,7 @@ deleteRouterPlates.delete('/plates', async (req, res) => {
 
   try {
     const plate =
-      await plateModel.findOneAndDelete({name: req.body.name.toString()});
+      await plateModel.findOneAndDelete({name: req.query.name.toString()});
 
     if (!plate) {
       return res.status(404).send();

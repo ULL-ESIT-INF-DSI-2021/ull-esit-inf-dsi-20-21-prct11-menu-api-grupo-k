@@ -5,7 +5,7 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 export const getRouterPlates = express.Router();
 
 getRouterPlates.get('/plates', async (req, res) => {
-  const filter = req.body.name?{name: req.body.name.toString()}:{};
+  const filter = req.query.name?{name: req.query.name.toString()}:{};
 
   try {
     const plate = await plateModel.find(filter);
