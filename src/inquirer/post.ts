@@ -25,7 +25,10 @@ export async function addPrompt(): Promise<void> {
       postAlimentPrompt();
       break;
     case addMenu.Platos:
-      // postAlimentPrompt();
+      // postPlatePrompt();
+      break;
+    case addMenu.Menus:
+      // postMenuPrompt();
       break;
     case addMenu.Volver:
       mainPrompt();

@@ -6,6 +6,7 @@ import * as mongoose from 'mongoose';
 import './db/mongoose';
 import {deletePrompt} from './inquirer/delete';
 import {viewPrompt} from './inquirer/get';
+import {modifyPrompt} from './inquirer/patch';
 import {addPrompt} from './inquirer/post';
 
 export const LinkAliments = 'https://grupo-k-p11-menu-app.herokuapp.com/aliments';
@@ -62,7 +63,7 @@ export async function mainPrompt(): Promise<void> {
       addPrompt();
       break;
     case MainMenu.Modificar:
-      // addPrompt();
+      modifyPrompt();
       break;
     case MainMenu.Eliminar:
       deletePrompt();
