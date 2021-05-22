@@ -4,7 +4,7 @@
 import * as inquirer from 'inquirer';
 import {delay, waitPrompt} from '../..';
 import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
-import {LinkAliments} from '../../heroku';
+import {LinkAliments} from '../../index';
 import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 let alimentGroup: AlimentGroup = AlimentGroup.meat;

@@ -8,6 +8,10 @@ import {deletePrompt} from './inquirer/delete';
 import {viewPrompt} from './inquirer/get';
 import {addPrompt} from './inquirer/post';
 
+export const LinkAliments = 'https://grupo-k-p11-menu-app.herokuapp.com/aliments';
+export const LinkPlates = 'https://grupo-k-p11-menu-app.herokuapp.com/plates';
+export const LinkMenus = 'https://grupo-k-p11-menu-app.herokuapp.com/menus';
+
 export function delay(ms: number) {
   return new Promise( (resolve) => setTimeout(resolve, ms) );
 }
