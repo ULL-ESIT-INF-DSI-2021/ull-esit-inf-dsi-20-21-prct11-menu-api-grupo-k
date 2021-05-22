@@ -4,6 +4,8 @@
 import * as inquirer from 'inquirer';
 import {delay, mainPrompt} from '../index';
 import {postAlimentPrompt} from './aliments/aliments';
+import {postMenuPrompt} from './menus/menus';
+import {postPlatePrompt} from './plates/plates';
 
 // Menu post
 enum addMenu {
@@ -25,10 +27,10 @@ export async function addPrompt(): Promise<void> {
       postAlimentPrompt();
       break;
     case addMenu.Platos:
-      // postPlatePrompt();
+      postPlatePrompt();
       break;
     case addMenu.Menus:
-      // postMenuPrompt();
+      postMenuPrompt();
       break;
     case addMenu.Volver:
       mainPrompt();

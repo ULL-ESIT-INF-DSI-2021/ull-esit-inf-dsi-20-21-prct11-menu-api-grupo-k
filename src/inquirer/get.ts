@@ -4,6 +4,8 @@
 import * as inquirer from 'inquirer';
 import {mainPrompt, waitPrompt} from '../index';
 import {getAlimentPrompt} from './aliments/aliments';
+import {getMenuPrompt} from './menus/menus';
+import {getPlatePrompt} from './plates/plates';
 
 // Ver Menu
 enum ViewMenu {
@@ -25,16 +27,10 @@ export async function viewPrompt(): Promise<void> {
       getAlimentPrompt();
       break;
     case ViewMenu.Platos:
-      console.clear();
-      console.log('\nPlatos:');
-
-      waitPrompt();
+      getPlatePrompt();
       break;
     case ViewMenu.Menus:
-      console.clear();
-      console.log('\nMenus:');
-
-      waitPrompt();
+      getMenuPrompt();
       break;
     case ViewMenu.Volver:
       mainPrompt();

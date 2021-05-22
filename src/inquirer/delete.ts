@@ -4,6 +4,8 @@
 import * as inquirer from 'inquirer';
 import {mainPrompt} from '../index';
 import {deleteAlimentPrompt} from './aliments/aliments';
+import {deleteMenuPrompt} from './menus/menus';
+import {deletePlatePrompt} from './plates/plates';
 
 // Delete Menu
 enum DeleteMenu {
@@ -23,6 +25,12 @@ export async function deletePrompt(): Promise<void> {
   switch (answers['command']) {
     case DeleteMenu.Alimentos:
       deleteAlimentPrompt();
+      break;
+    case DeleteMenu.Platos:
+      deletePlatePrompt();
+      break;
+    case DeleteMenu.Menus:
+      deleteMenuPrompt();
       break;
     case DeleteMenu.Volver:
       mainPrompt();

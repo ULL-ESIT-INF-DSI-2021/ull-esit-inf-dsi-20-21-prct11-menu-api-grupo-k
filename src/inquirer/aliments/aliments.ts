@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
@@ -299,7 +300,22 @@ export async function patchAlimentPrompt(): Promise<void> {
       break;
   }
   const alimento = new Aliment(nombre['add'], proteinas['add'], grasas['add'], carbohidratos['add'], calorias['add'], almidon['add'], azucar['add'], fibra['add'], agua['add'], price['add'], ciudad['add'], localidad['add'], alimentGroup);
-  const aliment = new alimentModel({
+  type alimentType = {
+    name: string,
+    protein: number,
+    fats: number,
+    carbohydrates: number,
+    calories: number,
+    starch: number,
+    sugars: number,
+    fiber: number,
+    water: number,
+    price: number,
+    city: string,
+    locality: string,
+    aliment_group: string,
+  }
+  const aliment: alimentType = {
     name: alimento.getName(),
     protein: alimento.getProtein(),
     fats: alimento.getFats(),
@@ -313,7 +329,7 @@ export async function patchAlimentPrompt(): Promise<void> {
     city: alimento.getCity(),
     locality: alimento.getLocality(),
     aliment_group: alimento.getAlimentGroup(),
-  });
+  };
   const axios = require('axios');
   (async () => {
     axios.patch(`${LinkAliments}?name=${nombreMod['add']}`, aliment).then(function(response: any) {
