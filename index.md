@@ -24,24 +24,25 @@ Para cada ejercicio:
 
 1. Se configuró apropiadamente el entorno
 
-2. Al hacer TDD, debemos de escribir las pruebas primero. Estas deben de fallar.
+2. Se realizo el despliegue de la base de datos [MongoDB](https://www.mongodb.com/es) en [Heroku](https://www.heroku.com/), utilizando [MongoDB Atlas](https://www.mongodb.com/es/cloud/atlas) y [MongoDB Compass](https://www.mongodb.com/products/compass)
 
-3. Se escribe el código. Esperando a que pase todas las pruebas implementadas
+3. Se restructuró las clases *Menu* *Plate* y *Aliment* de la práctica 7.
+  
+4. Se reescribio el código de las clases implementadas
 
-4. En caso de que sea necesario, se retoca el código.
+5. Se creo el schema y modelo de las clases mediante [Mongoose.js](https://mongoosejs.com/)
 
-5. Mediante [Typedoc](https://typedoc.org/) se genera la documentación para las funciones y los tipos
+6. Se creo mediante [Express](https://expressjs.com/) las rutas necesarias para llevar a cabo el CRUD
 
-6. Verificar mediante [Istambul](https://istanbul.js.org/) el cubrimiento del código
+7. Se comprobó el correcto funcionamiento del CRUD mediante [ThunderClient](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
-7. Mediante [Github Action](https://github.com/features/actions) se realiza integración continua de todos los test, en las diferentes versiones de Node.js cubrimiento del código
-
-8. Se generó este informe
+8. Mediante [Inquire.js](https://www.npmjs.com/package/inquirer) se facilitó la creación, modificación, lectura y actualización de alimentos, menus y platos.
 
 A continuación se explica la realización de la práctica
 
 ### Heroku
 
+Para el depliegue de la bbdd, se realizaron los pasos indicados en los apuntes. [Despliegue del API REST](https://ull-esit-inf-dsi-2021.github.io/nodejs-theory/nodejs-deployment.html)
 ### Recomposición de clases
 
 Utilizando las mismas clases en la práctica 7, se procesdio a cambiar la composición de estas de la siguiente manera.
@@ -65,11 +66,7 @@ Utilizando las mismas clases en la práctica 7, se procesdio a cambiar la compos
 
 La clase *Menu* no ha sufrido cambios
 
-#### MongoDB Atlas
-
-##### MongoDB Compass
-
-### Modelos Moongose
+### Modelos y esquemas Moongose
 
 - **Aliment**:
 
@@ -216,8 +213,6 @@ const subPlateSchema = new mongoose.Schema({
 
 3. Los valores de la composición nutritional deben ser mayores que 0
 
-### Routers
-
 ### Demostración del CRUD
 
 Para realizar las pruebas se utiliza ThunderClient y [MondoDBAtlas](https://www.mongodb.com/products/compass)
@@ -337,8 +332,26 @@ Se ha desarrollado una API, mediante Node/Express, permitiendo asi llevar a cabo
 
 ## Problemática
 
-Entre las problematicas encontradas podemos destacar los siguientes:
+Entre las problematicas encontradas podemos destacar las siguientes:
 
-Al realizar la creación del objeto *Mongoose* mediante las intefaces ya definadas, nuestra esquema presenta una composición de clases, por lo tanto, tuvimos que cambiar la manera en que se guarda la información para ser almacenada en el *MongoDB*, ya que si guardabamos por ejemplo, toda la información de un alimento, al hacer una operación de *Update* en la base de datos de dicho alimento, tendriamos que replicarla para todos los menus y platos con ese alimento
+Al realizar la creación del objeto *Mongoose* mediante las intefaces ya definadas, nuestra esquema presenta una composición de clases, por lo tanto, tuvimos que cambiar la manera en que se guarda la información para ser almacenada en el *MongoDB*, ya que, si guardabamos por ejemplo, toda la información de un alimento, al hacer una operación de *Update* en la base de datos de dicho alimento, tendríamos que replicarla para todos los menus y platos con ese alimento.
 
 ## Referencias
+
+- [Práctica 11 - API Node/Express de gestión de información nutricional](https://ull-esit-inf-dsi-2021.github.io/prct11-menu-api/)
+
+- [MongoDB](https://www.mongodb.com/es)
+
+- [Heroku](https://www.heroku.com/)
+
+- [MongoDB Atlas](https://www.mongodb.com/es/cloud/atlas)
+
+- [MongoDB Compass](https://www.mongodb.com/products/compass)
+
+- [Mongoose.js](https://mongoosejs.com/)
+
+- [ThunderClient](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+
+- [Express](https://expressjs.com/)
+
+- [Inquire.js](https://www.npmjs.com/package/inquirer)
