@@ -1,0 +1,69 @@
+/* eslint-disable new-cap */
+/* eslint-disable max-len */
+/* import * as express from 'express';
+import {alimentModel} from '../../models/aliments/AlimentsSchema';
+
+export const patchRouter = express.Router();
+
+patchRouter.patch('/aliments', async (req, res) => {
+  if (!req.query.name) {
+    return res.status(400).send({
+      error: 'A name must be provided',
+    });
+  }
+
+  const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group'];
+  const actualUpdates = Object.keys(req.fats);
+  const isValidUpdate =
+    actualUpdates.every((update) => allowedUpdates.includes(update));
+
+  if (!isValidUpdate) {
+    return res.status(400).send({
+      error: 'Update is not permitted',
+    });
+  }
+
+  try {
+    const aliment =
+    await alimentModel.findOneAndUpdate({name: req.query.name.toString()}, req.fats, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!aliment) {
+      return res.status(404).send();
+    }
+
+    return res.send(aliment);
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});
+
+patchRouter.patch('/aliments/:id', async (req, res) => {
+  const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group'];
+  const actualUpdates = Object.keys(req.fats);
+  const isValidUpdate =
+      actualUpdates.every((update) => allowedUpdates.includes(update));
+
+  if (!isValidUpdate) {
+    return res.status(400).send({
+      error: 'Update is not permitted',
+    });
+  }
+
+  try {
+    const aliment = await alimentModel.findByIdAndUpdate(req.params.id, req.fats, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!aliment) {
+      return res.status(404).send();
+    }
+
+    return res.send(aliment);
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});*/

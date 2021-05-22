@@ -8,7 +8,7 @@ mongoose.connect(mongodb_url, {
   useUnifiedTopology: true,
   useFindAndModify: false,
 }).then(() => {
-  console.log('Connection to MongoDB server established');
+  // console.log('Connection to MongoDB server established');
 }).catch(() => {
-  console.log('Unnable to connect to MongoDB server');
+  // console.log('Unnable to connect to MongoDB server');
 });
