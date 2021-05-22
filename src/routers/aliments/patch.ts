@@ -12,7 +12,7 @@ patchRouterAliments.patch('/aliments', async (req, res) => {
     });
   }
 
-  const allowedUpdates = ['_id', 'name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group', '__v'];
+  const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'city', 'locality', 'aliment_group'];
   const actualUpdates = Object.keys(req.body);
   const isValidUpdate =
     actualUpdates.every((update) => allowedUpdates.includes(update));
