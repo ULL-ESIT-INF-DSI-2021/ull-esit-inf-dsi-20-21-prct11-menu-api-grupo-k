@@ -5,7 +5,7 @@ import * as inquirer from 'inquirer';
 import {delay, waitPrompt} from '../..';
 import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
 import {LinkAliments} from '../../index';
-import {alimentModel} from '../../models/aliments/AlimentsSchema';
+import {alimentModel, AlimentSchema} from '../../models/aliments/AlimentsSchema';
 
 let alimentGroup: AlimentGroup = AlimentGroup.meat;
 
@@ -149,18 +149,21 @@ export async function getAlimentPrompt(): Promise<void> {
     name: 'add',
     message: 'Nombre: ',
   });
-  type nameType = {
+  const aliment = new alimentModel({
+    name: nombre['add'],
+  });
+  /* type nameType = {
     name: string,
     }
-  const name: nameType = {name: nombre['add']};
-  const axios = require('axios').default;
+  const name: nameType = {name: nombre['add']};*/
+  const axios = require('axios');
   (async () => {
-    axios.get(LinkAliments, name).then(function(response: any) {
+    axios.get(LinkAliments, aliment).then(function(response: any) {
       console.log('Respuesta del servidor: ' + response.status);
-      console.log('Alimento:');
+      console.log('Alimento:\n');
       console.log(response.data);
     }).catch(function(error: any) {
-      console.log(error);
+      console.log(error.message);
     });
     await delay(800);
     waitPrompt();
