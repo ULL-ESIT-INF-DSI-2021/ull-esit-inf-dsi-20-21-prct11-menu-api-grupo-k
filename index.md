@@ -48,21 +48,20 @@ Utilizando las mismas clases en la práctica 7, se procesdio a cambiar la compos
 
 - **Aliment**:
   
-![newAlimenr]()
+![newAlimenr](img/refactoring-clases/aliments.png)
 
 1. Posee un enumerado con los tipos de alimentos disponibles
 2. La localización y la ciudad en la clase, no las implementa de una interfaz
 
 - **Plate**:
   
-![newAlimenr]()
+![newAlimenr](img/refactoring-clases/plate.png)
 
 1. Se Elimina la herencia de clases
 2. Posee un enumerado con la categoría específica del plato
 
 - **Menu**:
-  
-![newAliment]()
+![newAlimenr](img/refactoring-clases/menu.png)
 
 La clase *Menu* no ha sufrido cambios
 
@@ -226,6 +225,7 @@ Para realizar las pruebas se utiliza ThunderClient y [MondoDBAtlas](https://www.
 Cabe destacar que se utilizan los siguiente opciones para realizar las operaciones
 
 **Create**
+
 - Se escribe en el *body* del JSON el nuevo elemento a crear
 **Read**
 - Se utiliza una cosulta para obtener el JSON deseado
@@ -238,7 +238,6 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
  Dado los siguientes alimentos introducidos hasta el momento:
    ![pollo](img/crud/aliment/post/bbdd.png)
-
 
 - READ
   - GET 200
@@ -300,7 +299,6 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
   - ![get200](img/crud/plate/delete/404.png)
 
 #### Menu
-
 
  Dado los siguientes menus introducidos hasta el momento:
    ![pollo](img/crud/menu/bbdd.png)
