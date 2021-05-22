@@ -219,7 +219,119 @@ const subPlateSchema = new mongoose.Schema({
 
 ### Routers
 
-### Pruebas del CRUD
+### Demostración del CRUD
+
+Para realizar las pruebas se utiliza ThunderClient y [MondoDBAtlas](https://www.mongodb.com/products/compass)
+
+Cabe destacar que se utilizan los siguiente opciones para realizar las operaciones
+
+**Create**
+- Se escribe en el *body* del JSON el nuevo elemento a crear
+**Read**
+- Se utiliza una cosulta para obtener el JSON deseado
+**Update**
+- Se utiliza una consulta para obtener el JSON deseado y se escribe en el cuerpo de JSON los parámetros a modificar
+**Delete**
+- Se utiliza una cosulta para eliminar el JSON deseado
+
+#### Aliments
+
+ Dado los siguientes alimentos introducidos hasta el momento:
+   ![pollo](img/crud/pollo.png)
+   ![carne](img/crud/carne.png)
+
+- READ
+  - GET 200
+  ![get200](img/crud/aliment/get200.png)
+  - GET 404
+  ![get404](img/crud/aliment/get404.png)
+- CREATE
+  - POST 201
+  ![get200](img/crud/aliment/post/201.png)
+  ![get200](img/crud/aliment/post/postSucces.png)
+  - POST 404 (al ya estar creado el alimento)
+  ![get200](img/crud/aliment/post/404.png)
+- UPDATE
+
+  - PATCH 200
+  ![get200](img/crud/aliment/update/200.png)
+  ![get200](img/crud/aliment/update/updateSucces.png)
+  - PATCH 400 (al no poseer la información necesaria)
+  ![get200](img/crud/aliment/update/400.png)
+  - PATCH 404 (al no existir el alimento)
+  - ![get200](img/crud/aliment/update/404.png)
+  
+- DELETE
+  - DELETE 200
+  ![get200](img/crud/aliment/delete/202.png)
+  ![get200](img/crud/aliment/delete/deleteSucced.png)
+    - DELETE 404 (al no existir el alimento)
+  - ![get200](img/crud/aliment/delete/404.png)
+
+#### Plate
+
+ Dado los siguientes platos introducidos hasta el momento:
+   ![pollo](img/crud/plate/bbdd.png)
+
+- READ
+  - GET 200
+  ![get200](img/crud/plate/read/200.png)
+  - GET 404
+  ![get404](img/crud/plate/read/404.png)
+- CREATE
+  - POST 201
+  ![get200](img/crud/plate/create/201.png)
+  ![post200](img/crud/plate/create/postSucces.png)
+  - POST 404 (al ya estar creado el plato)
+  ![get200](img/crud/plate/create/400.png)
+- UPDATE
+
+  - PATCH 200
+  ![get200](img/crud/plate/update/200.png)
+  ![get200](img/crud/plate/update/updatesucced.png)
+  - PATCH 400 (al no poseer la información necesaria)
+  ![get200](img/crud/plate/update/400.png)
+  - PATCH 404 (al no existir el alimento)
+  - ![get200](img/crud/plate/update/404.png)
+  
+- DELETE
+  - DELETE 200
+  ![get200](img/crud/plate/delete/200.png)
+  ![get200](img/crud/plate/delete/deleteSucced.png)
+    - DELETE 404 (al no existir el alimento)
+  - ![get200](img/crud/plate/delete/404.png)
+
+#### Menu
+
+
+ Dado los siguientes menus introducidos hasta el momento:
+   ![pollo](img/crud/menu/bbdd.png)
+
+- READ
+  - GET 200
+  ![get200](img/crud/menu/read/200.png)
+  - GET 404
+  ![get404](img/crud/menu/read/404.png)
+- CREATE
+  - POST 201
+  ![get200](img/crud/menu/create/201.png)
+  ![post200](img/crud/menu/create/Succed.png)
+  - POST 404 (al ya estar creado el plato)
+  ![get200](img/crud/menu/create/400.png)
+- UPDATE
+
+  - PATCH 200
+  ![get200](img/crud/menu/update/200.png)
+  ![get200](img/crud/menu/update/succes.png)
+  - PATCH 404 (al no existir el alimento)
+  - ![get200](img/crud/menu/update/404.png)
+  
+- DELETE
+  - DELETE 200
+  ![get200](img/crud/menu/delete/200.png)
+  ![get200](img/crud/menu/delete/success.png)
+    - DELETE 404 (al no existir el alimento)
+  - ![get200](img/crud/menu/delete/404.png)
 
 ### Inquire.JS
 
