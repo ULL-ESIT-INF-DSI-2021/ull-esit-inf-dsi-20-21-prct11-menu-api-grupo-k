@@ -18,10 +18,12 @@ const subListPreGroupSchema = new mongoose.Schema({
   },
 });
 
+
 /**
  * subesquema de los plato no unicos para poder introducirlos en menus
  * */
-const PlatesSchemaNoUnique = new mongoose.Schema({
+export const PlatesSchemaNoUnique = new mongoose.Schema({
+
   name: {
     type: String,
     trim: true,
