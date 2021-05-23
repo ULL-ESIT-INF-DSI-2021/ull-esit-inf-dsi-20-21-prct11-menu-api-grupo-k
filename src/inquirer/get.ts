@@ -7,13 +7,18 @@ import {getAlimentPrompt} from './aliments/aliments';
 import {getMenuPrompt} from './menus/menus';
 import {getPlatePrompt} from './plates/plates';
 
-// Ver Menu
+/**
+ * Ver Menu
+*/
 enum ViewMenu {
     Alimentos = 'Alimentos',
     Platos = 'Platos',
     Menus = 'Menus',
     Volver = 'Volver'
 }
+/**
+ * Prompt de inquire para ver alimentos, platos o menus
+ */
 export async function viewPrompt(): Promise<void> {
   console.clear();
   const answers = await inquirer.prompt({

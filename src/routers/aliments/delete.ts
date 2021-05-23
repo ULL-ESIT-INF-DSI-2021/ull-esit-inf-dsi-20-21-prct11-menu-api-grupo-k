@@ -4,6 +4,9 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const deleteRouterAliments = express.Router();
 
+/**
+ * Router delete de aliment
+ */
 deleteRouterAliments.delete('/aliments', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

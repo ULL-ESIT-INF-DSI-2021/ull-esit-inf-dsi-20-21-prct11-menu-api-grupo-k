@@ -4,6 +4,9 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const getRouterAliments = express.Router();
 
+/**
+ * Router READ de aliment
+ */
 getRouterAliments.get('/aliments', async (req, res) => {
   const filter = req.query.name?{name: req.query.name.toString()}:{};
 

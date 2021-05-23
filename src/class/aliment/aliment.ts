@@ -1,7 +1,11 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 import {NutritionalComposition} from '../interfaces/nutritional_composition';
 
+/**
+ * Tipo de alimento
+ */
 export enum AlimentGroup {
     meat = 'Carne',
     fish = 'Pescado',
@@ -16,6 +20,9 @@ export enum AlimentGroup {
     fruit = 'Fruta'
 }
 
+/**
+ * Representación de alimento, con su composición nutricional, ciudad y precio de venta
+ */
 export class Aliment implements NutritionalComposition {
   constructor(private name: string,
         public readonly protein: number,
@@ -32,6 +39,10 @@ export class Aliment implements NutritionalComposition {
         private aliment_group: AlimentGroup) {
   }
 
+  /**
+   * Forma en la que se muestran los alimentos
+   * @returns Forma en la que se muestran los alimentos
+   */
   print(): string {
     let output = '';
     output += 'Nombre: ' + this.getName() + '\n';
@@ -50,6 +61,9 @@ export class Aliment implements NutritionalComposition {
     return output;
   }
 
+  /**
+   * @returns Calorias del alimento
+   */
   getCalories() {
     return this.calories;
   }
@@ -141,6 +155,10 @@ export class Aliment implements NutritionalComposition {
     return this.price;
   }
 
+  /**
+   *
+   * @returns Categoria en la cual pertenece el alimeto
+   */
   getAlimentGroup() {
     return this.aliment_group;
   }

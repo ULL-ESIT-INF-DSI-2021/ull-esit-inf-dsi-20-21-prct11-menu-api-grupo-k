@@ -4,6 +4,9 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 
 export const getRouterPlates = express.Router();
 
+/**
+ * Router READ de plate
+ */
 getRouterPlates.get('/plates', async (req, res) => {
   const filter = req.query.name?{name: req.query.name.toString()}:{};
 

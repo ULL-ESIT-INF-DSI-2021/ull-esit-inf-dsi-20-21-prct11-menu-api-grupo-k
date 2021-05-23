@@ -4,6 +4,9 @@ import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
 import {NutritionalComposition} from '../../class/interfaces/nutritional_composition';
 import {Category} from '../../class/plate/plate';
 
+/**
+ * interfaz de platos
+ */
 export interface PlatesInterface extends Document, NutritionalComposition {
     name: string,
     protein: number,

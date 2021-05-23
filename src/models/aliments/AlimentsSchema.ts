@@ -2,6 +2,9 @@
 import * as mongoose from 'mongoose';
 import {AlimentsInterface} from './AlimentsInterface';
 
+/**
+ * Esquema de alimentos mediante Mongoose
+ */
 export const AlimentSchema = new mongoose.Schema({
   name: {
     type: String,

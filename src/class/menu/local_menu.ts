@@ -1,12 +1,21 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 import {Category, Plate} from '../plate/plate';
 import {Menu} from './menu';
 
+/**
+ * Menu preestablecidos, con 4 tipos de platos disponibles
+ */
 export class LocalMenu extends Menu {
   constructor(name: string) {
     super(name);
   }
 
+  /**
+   *
+   * @param plates Platos del menu
+   * @returns si el menu es valido, (debe de posee3 almenos 3 categorías de platos)
+   */
   setMenu(plates: Plate[]) : boolean {
     const menu_rules: boolean[] = [false, false, false, false];
     let cont: number = 0;

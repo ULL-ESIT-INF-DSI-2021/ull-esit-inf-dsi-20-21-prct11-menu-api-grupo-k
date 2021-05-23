@@ -5,6 +5,9 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 
 export const patchRouterPlates = express.Router();
 
+/**
+ * Router MODIFY de plate
+ */
 patchRouterPlates.patch('/plates', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

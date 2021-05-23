@@ -19,6 +19,9 @@ export function delay(ms: number) {
 enum WaitMenu {
     Volver = 'Volver'
 }
+/**
+ * Invocación del Inquired
+ *  */
 export async function waitPrompt(): Promise<void> {
   const answers = await inquirer.prompt({
     type: 'list',

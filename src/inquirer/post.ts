@@ -7,13 +7,18 @@ import {postAlimentPrompt} from './aliments/aliments';
 import {postMenuPrompt} from './menus/menus';
 import {postPlatePrompt} from './plates/plates';
 
-// Menu post
+/**
+ * Menu post
+ */
 enum addMenu {
     Alimentos = 'Alimentos',
     Platos = 'Platos',
     Menus = 'Menus',
     Volver = 'Volver'
   }
+/**
+ * Prompt de inquire para agregar alimentos, platos o menus
+ */
 export async function addPrompt(): Promise<void> {
   console.clear();
   const answers = await inquirer.prompt({

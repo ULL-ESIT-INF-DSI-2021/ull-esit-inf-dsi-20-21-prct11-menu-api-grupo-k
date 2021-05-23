@@ -15,6 +15,9 @@ const axios = require('axios');
 
 let category: Category;
 
+/**
+ * Obtener grupo de alimentos
+ */
 function getAlimentG(group: string): AlimentGroup {
   let ag: AlimentGroup = AlimentGroup.cereal;
   Object.values(AlimentGroup).forEach((groups) => {
@@ -25,6 +28,9 @@ function getAlimentG(group: string): AlimentGroup {
   return ag;
 }
 
+/**
+ * Introducir alimentos
+ */
 export async function postPlatePrompt(): Promise<void> {
   console.clear();
   console.log('Nuevo plato:');
@@ -165,6 +171,9 @@ export async function postPlatePrompt(): Promise<void> {
   });
 }
 
+/**
+ * Obtener alimentos
+ */
 export async function getPlatePrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -187,6 +196,9 @@ export async function getPlatePrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Borrar alimentos
+ */
 export async function deletePlatePrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -209,6 +221,9 @@ export async function deletePlatePrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Modificar alimentos
+ */
 export async function patchPlatePrompt(): Promise<void> {
   console.clear();
   console.log('Nombre del plato a modificar:');

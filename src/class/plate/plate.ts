@@ -3,6 +3,9 @@
 import {Aliment, AlimentGroup} from '../aliment/aliment';
 import {NutritionalComposition} from '../interfaces/nutritional_composition';
 
+/**
+ * Categoría del menu, si es un postre, principal, etc
+ */
 export enum Category {entree = 'Entrante', maincourse = 'Principal', secondcourse = 'Secundario', dessert = 'Postre'}
 
 /**

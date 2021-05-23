@@ -4,6 +4,9 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 
 export const postRouterPlates = express.Router();
 
+/**
+ * Router CREATE de plate
+ */
 postRouterPlates.post('/plates', (req, res) => {
   const plate = new plateModel(req.body);
 
