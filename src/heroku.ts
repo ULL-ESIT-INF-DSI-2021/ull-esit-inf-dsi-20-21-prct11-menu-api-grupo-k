@@ -15,7 +15,7 @@ import {patchRouterMenu} from './routers/menu/patch';
 
 const app = express();
 app.use(express.json());
-// Aliments
+// Aliment
 app.use(postRouterAliments);
 app.use(getRouterAliments);
 app.use(deleteRouterAliments);
