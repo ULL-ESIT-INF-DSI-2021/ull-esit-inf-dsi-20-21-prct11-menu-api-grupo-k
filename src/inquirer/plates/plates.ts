@@ -7,19 +7,28 @@ import {delay, LinkAliments, waitPrompt} from '../..';
 // import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
 import {Category, Plate} from '../../class/plate/plate';
 import {LinkPlates} from '../../index';
-import {PlatesSchema} from '../../models/plates/PlatesSchema';
-// import {alimentModel} from '../../models/aliments/AlimentsSchema';
+import {PlatesSchema, subIngredientsSchema} from '../../models/plates/PlatesSchema';
+import {alimentModel} from '../../models/aliments/AlimentsSchema';
 import * as mongoose from 'mongoose';
-
+import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
+const axios = require('axios');
 
 let category: Category;
 
+function getAlimentG(group: string): AlimentGroup {
+  let ag: AlimentGroup = AlimentGroup.cereal;
+  Object.values(AlimentGroup).forEach((groups) => {
+    if (groups === group) {
+      ag = groups;
+    }
+  });
+  return ag;
+}
 
 export async function postPlatePrompt(): Promise<void> {
   console.clear();
-  console.log('Opcion no disponible..');
 
-  /* const nombre = await inquirer.prompt({
+  const nombre = await inquirer.prompt({
     type: 'input',
     name: 'add',
     message: 'Nombre: ',
@@ -47,24 +56,101 @@ export async function postPlatePrompt(): Promise<void> {
       break;
   }
 
-  type ingreType = {
-    aliment: string,
-    quantity: number,
-  }
-  const ing: ingreType[] = [];
-  const alimentosdb: string[] = [];
-  const axios = require('axios');
+  const alimentosdb: Aliment[] = [];
+  const alimentosdbModel: typeof alimentModel[] = [];
 
   axios.get(LinkAliments).then(function(response: any) {
     console.log(response.data.length);
     for (let i = 0; i < response.data.length; i++) {
-      alimentosdb.push(response.data[i].name);
+      alimentosdbModel.push(response.data[i]);
+      const alimentoNew = new Aliment(
+          response.data[i].name,
+          response.data[i].protein,
+          response.data[i].fats,
+          response.data[i].carbohydrates,
+          response.data[i].calories,
+          response.data[i].starch,
+          response.data[i].sugars,
+          response.data[i].fiber,
+          response.data[i].water,
+          response.data[i].price,
+          response.data[i].city,
+          response.data[i].locality,
+          getAlimentG(response.data[i].aliment_group));
+      alimentosdb.push(alimentoNew);
     }
+    const ingredientes = new Map<Aliment, number>();
+
+    for (let i = 0; i < alimentosdb.length; i++) {
+      ingredientes.set(alimentosdb[i], 1);
+    }
+
+    const plateNew: Plate = new Plate(nombre['add'], ingredientes, category);
+
+
+    type predominantType = {
+      alimentGroup: string,
+      quantity: number,
+    }
+    const pre: predominantType = {alimentGroup: plateNew.getPredominantAlimentGroup()[0], quantity: plateNew.getPredominantAlimentGroup()[1]};
+
+    type alimentType = {
+      aliment: any,
+      quantity: number,
+    }
+
+    // const ing = mongoose.model('ingredients', subIngredientsSchema);
+
+
+    const aliment2 = new alimentModel({
+      name: alimentosdb[0].getName(),
+      protein: alimentosdb[0].getProtein(),
+      fats: alimentosdb[0].getFats(),
+      carbohydrates: alimentosdb[0].getCarbohydrates(),
+      calories: alimentosdb[0].getCalories(),
+      starch: alimentosdb[0].getStarch(),
+      sugars: alimentosdb[0].getSugars(),
+      fiber: alimentosdb[0].getFiber(),
+      water: alimentosdb[0].getWater(),
+      price: alimentosdb[0].getPriceOfAliment(),
+      city: alimentosdb[0].getCity(),
+      locality: alimentosdb[0].getLocality(),
+      aliment_group: alimentosdb[0].getAlimentGroup(),
+    });
+
+    const ingNew: alimentType = {aliment: aliment2, quantity: 5};
+
+    const plate = mongoose.model('plates', PlatesSchema);
+    const item = new plate;
+    item.name = plateNew.getName();
+    item.category = plateNew.getCategory();
+    item.calories = plateNew.getCalories();
+    item.protein = plateNew.getProtein();
+    item.fats = plateNew.getFats();
+    item.carbohydrates = plateNew.getCarbohydrates();
+    item.starch = plateNew.getStarch();
+    item.sugars = plateNew.getSugars();
+    item.fiber = plateNew.getFiber();
+    item.water = plateNew.getWater();
+    item.price = plateNew.getPrice();
+    item.ingredients = [ingNew];
+    item.predominantAlimentGroup = pre;
+    (async () => {
+      axios.post(LinkPlates, item).then(function(response: any) {
+        console.log('Plato agregado con exito!');
+        console.log('Respuesta del servidor: ' + response.status);
+      }).catch(function(error: any) {
+        console.log(error);
+      });
+      await delay(800);
+      waitPrompt();
+    })();
   }).catch(function(error: any) {
     console.log(error.message);
   });
 
-  inquirer.prompt([
+
+  /* inquirer.prompt([
     {
       name: 'Aliments',
       type: 'checkbox',
@@ -76,27 +162,45 @@ export async function postPlatePrompt(): Promise<void> {
       const aux: ingreType = {aliment: answer.Aliments[i], quantity: 0};
       ing.push(aux);
     }
-  });
+  });*/
+  /* const ingredientes = new Map<Aliment, number>();
+
+  for (let i = 0; i < alimentosdb.length; i++) {
+    ingredientes.set(alimentosdb[i], 1);
+  }
+
+  const plateNew: Plate = new Plate(nombre['add'], ingredientes, category);
+
 
   type predominantType = {
     alimentGroup: string,
     quantity: number,
   }
-  const pre: predominantType = {alimentGroup: 'pollito', quantity: 12};
+  const pre: predominantType = {alimentGroup: plateNew.getPredominantAlimentGroup()[0], quantity: plateNew.getPredominantAlimentGroup()[1]};
+
+  type tuplaIngre = {
+    aliment: typeof alimentModel,
+    quantity: number,
+  }
+  const ing: tuplaIngre[] = [];
+
+  for (let i = 0; i < alimentosdbModel.length; i++) {
+    ing.push({aliment: alimentosdbModel[i], quantity: 1});
+  }
 
   const plate = mongoose.model('plates', PlatesSchema);
   const item = new plate;
-  item.name = nombre['add'];
-  item.category = category;
-  item.calories = 0;
-  item.protein = 0;
-  item.fats = 0;
-  item.carbohydrates = 0;
-  item.starch = 0;
-  item.sugars = 0;
-  item.fiber = 0;
-  item.water = 0;
-  item.price = 0;
+  item.name = plateNew.getName();
+  item.category = plateNew.getCategory();
+  item.calories = plateNew.getCalories();
+  item.protein = plateNew.getProtein();
+  item.fats = plateNew.getFats();
+  item.carbohydrates = plateNew.getCarbohydrates();
+  item.starch = plateNew.getStarch();
+  item.sugars = plateNew.getSugars();
+  item.fiber = plateNew.getFiber();
+  item.water = plateNew.getWater();
+  item.price = plateNew.getPrice();
   item.ingredients = ing;
   item.predominantAlimentGroup = pre;
   (async () => {
@@ -108,8 +212,8 @@ export async function postPlatePrompt(): Promise<void> {
     });
     await delay(800);
     waitPrompt();
-  })();*/
-  waitPrompt();
+  })();
+  waitPrompt();*/
 }
 
 export async function getPlatePrompt(): Promise<void> {

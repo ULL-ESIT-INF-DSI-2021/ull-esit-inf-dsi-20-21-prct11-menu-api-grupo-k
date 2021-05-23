@@ -15,7 +15,7 @@ const subPreGroupSchema = new mongoose.Schema({
   },
 });
 
-const subIngredientsSchema = new mongoose.Schema({
+export const subIngredientsSchema = new mongoose.Schema({
   aliment: {
     type: AlimentSchema,
     trim: true,
