@@ -2,8 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import * as inquirer from 'inquirer';
-import * as mongoose from 'mongoose';
-import './db/mongoose';
 import {deletePrompt} from './inquirer/delete';
 import {viewPrompt} from './inquirer/get';
 import {modifyPrompt} from './inquirer/patch';
@@ -69,9 +67,8 @@ export async function mainPrompt(): Promise<void> {
       deletePrompt();
       break;
     case MainMenu.Salir:
-      mongoose.connection.close();
+      console.clear();
       break;
   }
 }
-
 mainPrompt();

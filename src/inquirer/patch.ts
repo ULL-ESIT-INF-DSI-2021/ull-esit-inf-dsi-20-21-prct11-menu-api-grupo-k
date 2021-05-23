@@ -2,9 +2,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import * as inquirer from 'inquirer';
-import {mainPrompt, waitPrompt} from '../index';
+import {mainPrompt} from '../index';
 import {patchAlimentPrompt} from './aliments/aliments';
-// import {patchMenuPrompt} from './menus/menus';
+import {patchMenuPrompt} from './menus/menus';
 import {patchPlatePrompt} from './plates/plates';
 
 // Modificar Menu
@@ -30,7 +30,7 @@ export async function modifyPrompt(): Promise<void> {
       patchPlatePrompt();
       break;
     case ModMenu.Menus:
-      // patchMenuPrompt();
+      patchMenuPrompt();
       break;
     case ModMenu.Volver:
       mainPrompt();

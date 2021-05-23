@@ -12,7 +12,7 @@ patchRouterPlates.patch('/plates', async (req, res) => {
     });
   }
 
-  /* const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'predominantAlimentGroup', 'ingredients', 'category'];
+  const allowedUpdates = ['name', 'protein', 'fats', 'carbohydrates', 'calories', 'starch', 'sugars', 'fiber', 'water', 'price', 'predominantAlimentGroup', 'ingredients', 'category'];
   const actualUpdates = Object.keys(req.body);
   const isValidUpdate =
     actualUpdates.every((update) => allowedUpdates.includes(update));
@@ -21,7 +21,7 @@ patchRouterPlates.patch('/plates', async (req, res) => {
     return res.status(400).send({
       error: 'Update is not permitted',
     });
-  }*/
+  }
 
   try {
     const plate =

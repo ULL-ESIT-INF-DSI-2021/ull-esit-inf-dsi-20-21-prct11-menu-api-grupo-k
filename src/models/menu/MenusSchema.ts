@@ -15,14 +15,6 @@ const subListPreGroupSchema = new mongoose.Schema({
   },
 });
 
-/* const subPlateSchema = new mongoose.Schema({
-  plate: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-});*/
-
 const PlatesSchemaNoUnique = new mongoose.Schema({
   name: {
     type: String,

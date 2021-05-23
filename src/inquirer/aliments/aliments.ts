@@ -12,6 +12,7 @@ let alimentGroup: AlimentGroup = AlimentGroup.meat;
 
 export async function postAlimentPrompt(): Promise<void> {
   console.clear();
+  console.log('Nuevo alimento:');
   const nombre = await inquirer.prompt({
     type: 'input',
     name: 'add',

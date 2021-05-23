@@ -1,3 +1,4 @@
+/* eslint-disable func-call-spacing */
 /* eslint-disable camelcase */
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
@@ -26,7 +27,7 @@ function getAlimentG(group: string): AlimentGroup {
 
 export async function postPlatePrompt(): Promise<void> {
   console.clear();
-
+  console.log('Nuevo plato:');
   const nombre = await inquirer.prompt({
     type: 'input',
     name: 'add',
@@ -58,7 +59,6 @@ export async function postPlatePrompt(): Promise<void> {
   const alimentosdb: Aliment[] = [];
   const alimentosdbModel: typeof alimentModel[] = [];
   axios.get(LinkAliments).then(function(response: any) {
-    console.log(response.data.length);
     for (let i = 0; i < response.data.length; i++) {
       alimentosdbModel.push(response.data[i]);
       const alimentoNew = new Aliment(
@@ -179,6 +179,7 @@ export async function getPlatePrompt(): Promise<void> {
       console.log('Plato:\n');
       console.log(response.data);
     }).catch(function(error: any) {
+      console.log('Plato no encontrado!');
       console.log(error.message);
     });
     await delay(800);
@@ -250,7 +251,6 @@ export async function patchPlatePrompt(): Promise<void> {
   const alimentosdb: Aliment[] = [];
   const alimentosdbModel: typeof alimentModel[] = [];
   axios.get(LinkAliments).then(function(response: any) {
-    console.log(response.data.length);
     for (let i = 0; i < response.data.length; i++) {
       alimentosdbModel.push(response.data[i]);
       const alimentoNew = new Aliment(
@@ -326,27 +326,43 @@ export async function patchPlatePrompt(): Promise<void> {
     }
     const pre: predominantType = {alimentGroup: plateNew.getPredominantAlimentGroup()[0], quantity: plateNew.getPredominantAlimentGroup()[1]};
 
-    const plate = mongoose.model('plates', PlatesSchema);
-    const item = new plate;
-    item.name = plateNew.getName();
-    item.category = plateNew.getCategory();
-    item.calories = plateNew.getCalories();
-    item.protein = plateNew.getProtein();
-    item.fats = plateNew.getFats();
-    item.carbohydrates = plateNew.getCarbohydrates();
-    item.starch = plateNew.getStarch();
-    item.sugars = plateNew.getSugars();
-    item.fiber = plateNew.getFiber();
-    item.water = plateNew.getWater();
-    item.price = plateNew.getPrice();
-    item.ingredients = ingNew;
-    item.predominantAlimentGroup = pre;
+    type plateType = {
+      name: string,
+      category: string,
+      calories: number,
+      protein: number,
+      fats: number,
+      carbohydrates: number,
+      starch: number,
+      sugars: number,
+      fiber: number,
+      water: number,
+      price: number,
+      ingredients: alimentType[],
+      predominantAlimentGroup: predominantType,
+    }
+    const item: plateType = {
+      name: plateNew.getName(),
+      category: plateNew.getCategory(),
+      calories: plateNew.getCalories(),
+      protein: plateNew.getProtein(),
+      fats: plateNew.getFats(),
+      carbohydrates: plateNew.getCarbohydrates(),
+      starch: plateNew.getStarch(),
+      sugars: plateNew.getSugars(),
+      fiber: plateNew.getFiber(),
+      water: plateNew.getWater(),
+      price: plateNew.getPrice(),
+      ingredients: ingNew,
+      predominantAlimentGroup: pre,
+    };
     (async () => {
       axios.patch(`${LinkPlates}?name=${nombreMod['add']}`, item).then(function(response: any) {
         console.log('Plato modificado con exito!');
         console.log('Respuesta del servidor: ' + response.status);
       }).catch(function(error: any) {
-        console.log(error);
+        console.log('Plato no encontrado!');
+        console.log(error.message);
       });
       await delay(800);
       waitPrompt();

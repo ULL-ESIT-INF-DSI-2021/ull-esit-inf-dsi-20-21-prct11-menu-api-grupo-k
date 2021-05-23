@@ -2,9 +2,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import * as inquirer from 'inquirer';
-import {delay, mainPrompt} from '../index';
+import {mainPrompt} from '../index';
 import {postAlimentPrompt} from './aliments/aliments';
-// import {postMenuPrompt} from './menus/menus';
+import {postMenuPrompt} from './menus/menus';
 import {postPlatePrompt} from './plates/plates';
 
 // Menu post
@@ -30,7 +30,7 @@ export async function addPrompt(): Promise<void> {
       postPlatePrompt();
       break;
     case addMenu.Menus:
-      // postMenuPrompt();
+      postMenuPrompt();
       break;
     case addMenu.Volver:
       mainPrompt();
