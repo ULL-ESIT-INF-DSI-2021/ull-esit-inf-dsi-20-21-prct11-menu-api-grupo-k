@@ -12,6 +12,8 @@
 
 #### José Daniel Fuentes Marra
 
+#### [Enlace al video](https://www.youtube.com/watch?v=4fysho3FjVw)
+
 ## Introducción
 
 En esta práctica grupal desarrollaremos una API, haciendo uso de Node/Express, que permita llevar a cabo operaciones de creación, lectura, modificación y borrado (Create, Read, Update, Delete - CRUD) de ingredientes, platos y menús.Utilizando  [Typescript](https://www.typescriptlang.org/)
@@ -338,11 +340,14 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
 ### Inquire.JS
 
+
+
 ### Pruebas Implementadas
 
 ![test](img/test/test.jpg)
 ### Cubrimiento del Código
-
+ 
+![test](img/test/action.png)
 
 ## Conclusiones
 
