@@ -16,6 +16,12 @@
 
 En esta práctica grupal desarrollaremos una API, haciendo uso de Node/Express, que permita llevar a cabo operaciones de creación, lectura, modificación y borrado (Create, Read, Update, Delete - CRUD) de ingredientes, platos y menús.Utilizando  [Typescript](https://www.typescriptlang.org/)
 
+
+
+## Observación
+
+- Debido a que la configuracón del [Heroku](https://www.heroku.com/) se realizó con la cuenta del integrante Jose Daniel, y por motivos de tiempo y complicaciones con la plataforma, no pudimos configurar apropiadamente el [Heroku](https://www.heroku.com/) para permitir cuentas multiples. Por esa razón **Se trabajo con SSH a la maquina remota del IaaS de Jose Daniel** para poder así trabajar individualemnte con el Heroku. Por este motivo **La mayoria de los commits van de parte de Jose Daniel**
+
 ## Metodología
 
 Para realizar la práctica, y este informe, se uso la siguiente metodología:
@@ -325,6 +331,12 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
   - ![get200](img/crud/menu/delete/404.png)
 
 ### Inquire.JS
+
+### Pruebas Implementadas
+
+### Cubrimiento del Código
+
+
 
 ## Conclusiones
 
