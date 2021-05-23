@@ -2,9 +2,9 @@
 /* eslint-disable max-len */
 import 'mocha';
 import {expect} from 'chai';
-import {Aliment, AlimentGroup} from '../../src/aliment/aliment';
-import {LocalMenu} from '../../src/menu/local_menu';
-import {Plate, Category} from '../../src/plate/plate';
+import {Aliment, AlimentGroup} from '../../src/class/aliment/aliment';
+import {LocalMenu} from '../../src/class/menu/local_menu';
+import {Plate, Category} from '../../src/class/plate/plate';
 
 
 describe(`Menu Tests`, () => {
@@ -151,8 +151,7 @@ describe(`Menu Tests`, () => {
   ingredientes.set(bizcocho, 30);
 
   const menu_predefinido1 = new LocalMenu('Almuerzo de poseidon');
-  console.log('Menu 1 = ' + menu_predefinido1.setMenu([plato_croquetas, plato_sushi, plato_arrozleche, plato_pastatuna]));
-
+  menu_predefinido1.setMenu([plato_croquetas, plato_sushi, plato_arrozleche, plato_pastatuna]);
 
   it('menu_predefinido1.getName() returns value Maki Sushi', () => {
     expect(menu_predefinido1.getName()).to.equal('Almuerzo de poseidon');

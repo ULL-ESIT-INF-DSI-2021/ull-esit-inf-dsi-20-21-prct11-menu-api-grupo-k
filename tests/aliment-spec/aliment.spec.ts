@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import 'mocha';
 import {expect} from 'chai';
-import {Aliment, AlimentGroup} from '../../src/aliment/aliment';
+import {Aliment, AlimentGroup} from '../../src/class/aliment/aliment';
 
 
 describe(`Aliment Test`, () => {

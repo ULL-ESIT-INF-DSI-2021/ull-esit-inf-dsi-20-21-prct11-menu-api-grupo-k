@@ -1,10 +1,12 @@
+/* eslint-disable new-cap */
+/* eslint-disable camelcase */
 /* eslint-disable max-len */
 import 'mocha';
 import {expect} from 'chai';
-import {alimentModel} from '../src/models/aliments/AlimentsSchema'
-import {plateModel} from '../src/models/plates/PlatesSchema'
-import {menuModel, PlatesSchemaNoUnique} from '../src/models/menu/MenusSchema'
-import {AlimentGroup} from '../src/class/aliment/aliment';
+import {alimentModel} from '../../src/models/aliments/AlimentsSchema';
+import {plateModel} from '../../src/models/plates/PlatesSchema';
+import {menuModel, PlatesSchemaNoUnique} from '../../src/models/menu/MenusSchema';
+import {AlimentGroup} from '../../src/class/aliment/aliment';
 const axios = require('axios').default;
 import * as mongoose from 'mongoose';
 
@@ -74,7 +76,7 @@ const aliment = new alimentModel({
   price: 9,
   city: 'Santa Cruz',
   locality: 'Tenerife',
-  aliment_group: AlimentGroup.cereal
+  aliment_group: AlimentGroup.cereal,
 });
 
 
@@ -88,25 +90,7 @@ type predominantType = {
 
 const pre: predominantType = {alimentGroup: 'Carne', quantity: 5};
 
-const plato = new plateModel ({
-    name: 'test-plato',
-    category: 'entree',
-    calories: 1,
-    protein: 2,
-    fats: 3,
-    carbohydrates: 4,
-    starch: 5,
-    sugars: 6,
-    fiber: 7,
-    water: 8,
-    price: 9,
-    ingredients: ingNew,
-    predominantAlimentGroup: pre
-});
-
-const plateModelNoUnique = mongoose.model('NoUniquePlate', PlatesSchemaNoUnique);
-
-const plato_no_unique = new plateModelNoUnique ({
+const plato = new plateModel({
   name: 'test-plato',
   category: 'entree',
   calories: 1,
@@ -119,12 +103,29 @@ const plato_no_unique = new plateModelNoUnique ({
   water: 8,
   price: 9,
   ingredients: ingNew,
-  predominantAlimentGroup: pre
+  predominantAlimentGroup: pre,
+});
+
+const plateModelNoUnique = mongoose.model('NoUniquePlate', PlatesSchemaNoUnique);
+
+const plato_no_unique = new plateModelNoUnique({
+  name: 'test-plato',
+  category: 'entree',
+  calories: 1,
+  protein: 2,
+  fats: 3,
+  carbohydrates: 4,
+  starch: 5,
+  sugars: 6,
+  fiber: 7,
+  water: 8,
+  price: 9,
+  ingredients: ingNew,
+  predominantAlimentGroup: pre,
 });
 
 
-
-const menu = new menuModel ({
+const menu = new menuModel({
   name: 'test-menu',
   plates: [plato_no_unique],
   price: 1,
@@ -145,10 +146,10 @@ async function mainAliment(operacion: string, url: string) {
   switch (operacion) {
     case 'post':
       response = await axios.post(url, aliment);
-    break;
+      break;
     case 'get':
       response = await axios.get(url);
-    break;
+      break;
     case 'patch':
       const aliment_update : alimentType = {
         name: 'test-alimento-update',
@@ -163,14 +164,13 @@ async function mainAliment(operacion: string, url: string) {
         price: 9,
         city: 'Santa Cruz',
         locality: 'Tenerife',
-        aliment_group: AlimentGroup.cereal
+        aliment_group: AlimentGroup.cereal,
       };
       response = await axios.patch(url, aliment_update);
-    break;
+      break;
     case 'delete':
       response = await axios.delete(url);
-    break;
-
+      break;
   }
 
   return response;
@@ -181,10 +181,10 @@ async function mainPlate(operacion: string, url: string) {
   switch (operacion) {
     case 'post':
       response = await axios.post(url, plato);
-    break;
+      break;
     case 'get':
       response = await axios.get(url);
-    break;
+      break;
     case 'patch':
       const plate_update : plateType = {
         name: 'test-plato-update',
@@ -199,13 +199,13 @@ async function mainPlate(operacion: string, url: string) {
         water: 8,
         price: 9,
         ingredients: ingNew,
-        predominantAlimentGroup: pre
+        predominantAlimentGroup: pre,
       };
       response = await axios.patch(url, plate_update);
-    break;
+      break;
     case 'delete':
       response = await axios.delete(url);
-    break;
+      break;
   }
   return response;
 };
@@ -215,10 +215,10 @@ async function mainMenu(operacion: string, url: string) {
   switch (operacion) {
     case 'post':
       response = await axios.post(url, menu);
-    break;
+      break;
     case 'get':
       response = await axios.get(url);
-    break;
+      break;
     case 'patch':
       const menu_update : menuType = {
         name: 'test-menu-update',
@@ -233,84 +233,81 @@ async function mainMenu(operacion: string, url: string) {
         fiber: 8,
         water: 9,
         alimentGroupList: [pre],
-        verify_menu: true
+        verify_menu: true,
       };
       response = await axios.patch(url, menu_update);
-    break;
+      break;
     case 'delete':
       response = await axios.delete(url);
-    break;
+      break;
   }
   return response;
 };
 
 // Pruebas
 describe('Tests para el CRUD de menu-app:', () => {
-
   it('Agregar a la base de datos un alimento', async () => {
-     const response = await mainAliment('post','https://grupo-k-p11-menu-app.herokuapp.com/aliments');
-     expect(response.status).to.equal(201);
+    const response = await mainAliment('post', 'https://grupo-k-p11-menu-app.herokuapp.com/aliments');
+    expect(response.status).to.equal(201);
   });
 
-  
-  it('Buscar en la base de datos el alimento: test-alimento', async () => {
-    const response = await mainAliment('get','https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento');
-    expect(response.status).to.equal(200);
 
+  it('Buscar en la base de datos el alimento: test-alimento', async () => {
+    const response = await mainAliment('get', 'https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento');
+    expect(response.status).to.equal(200);
   });
 
   it('Modificar el alimento : test-alimento', async () => {
-    const response = await mainAliment('patch','https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento');
+    const response = await mainAliment('patch', 'https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento');
     expect(response.status).to.equal(200);
   });
 
   it('Eliminar en la base de datos el alimento: test-alimento-update', async () => {
-    const response = await mainAliment('delete','https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento-update');
+    const response = await mainAliment('delete', 'https://grupo-k-p11-menu-app.herokuapp.com/aliments?name=test-alimento-update');
     expect(response.status).to.equal(200);
   });
 
-  //-------------------------------Platos---------------------------------------------------
+  // -------------------------------Platos---------------------------------------------------
 
   it('Agregar a la base de datos un plato', async () => {
-    const response = await mainPlate('post','https://grupo-k-p11-menu-app.herokuapp.com/plates');
+    const response = await mainPlate('post', 'https://grupo-k-p11-menu-app.herokuapp.com/plates');
     expect(response.status).to.equal(201);
   });
- 
- it('Buscar en la base de datos el plato: test-plato', async () => {
-   const response = await mainPlate('get','https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato');
-   expect(response.status).to.equal(200);
- });
 
- it('Modificar el plato : test-plato', async () => {
-   const response = await mainPlate('patch','https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato');
-   expect(response.status).to.equal(200);
- });
+  it('Buscar en la base de datos el plato: test-plato', async () => {
+    const response = await mainPlate('get', 'https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato');
+    expect(response.status).to.equal(200);
+  });
 
- it('Eliminar en la base de datos el plato: test-plato-update', async () => {
-   const response = await mainPlate('delete','https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato-update');
-   expect(response.status).to.equal(200);
- });
+  it('Modificar el plato : test-plato', async () => {
+    const response = await mainPlate('patch', 'https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato');
+    expect(response.status).to.equal(200);
+  });
 
-   //-------------------------------Menu---------------------------------------------------
+  it('Eliminar en la base de datos el plato: test-plato-update', async () => {
+    const response = await mainPlate('delete', 'https://grupo-k-p11-menu-app.herokuapp.com/plates?name=test-plato-update');
+    expect(response.status).to.equal(200);
+  });
 
-   it('Agregar a la base de datos un menu', async () => {
-    const response = await mainMenu('post','https://grupo-k-p11-menu-app.herokuapp.com/menus');
+  // -------------------------------Menu---------------------------------------------------
+
+  it('Agregar a la base de datos un menu', async () => {
+    const response = await mainMenu('post', 'https://grupo-k-p11-menu-app.herokuapp.com/menus');
     expect(response.status).to.equal(201);
   });
- 
- it('Buscar en la base de datos el menu: test-menu', async () => {
-   const response = await mainMenu('get','https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu');
-   expect(response.status).to.equal(200);
- });
-  
- it('Modificar el menu : test-menu', async () => {
-   const response = await mainMenu('patch','https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu');
-   expect(response.status).to.equal(200);
- });
- 
- it('Eliminar en la base de datos el menu: test-menu-update', async () => {
-   const response = await mainMenu('delete','https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu-update');
-   expect(response.status).to.equal(200);
- });
 
+  it('Buscar en la base de datos el menu: test-menu', async () => {
+    const response = await mainMenu('get', 'https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu');
+    expect(response.status).to.equal(200);
+  });
+
+  it('Modificar el menu : test-menu', async () => {
+    const response = await mainMenu('patch', 'https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu');
+    expect(response.status).to.equal(200);
+  });
+
+  it('Eliminar en la base de datos el menu: test-menu-update', async () => {
+    const response = await mainMenu('delete', 'https://grupo-k-p11-menu-app.herokuapp.com/menus?name=test-menu-update');
+    expect(response.status).to.equal(200);
+  });
 });
