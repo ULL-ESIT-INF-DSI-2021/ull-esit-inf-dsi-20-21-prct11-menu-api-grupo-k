@@ -44,7 +44,7 @@ Para cada ejercicio:
 
 7. Se comprobó el correcto funcionamiento del CRUD mediante [ThunderClient](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
-8. Mediante [Inquire.js](https://www.npmjs.com/package/inquirer) se facilitó la creación, modificación, lectura y actualización de alimentos, menus y platos.
+8. Mediante [Inquirer.js](https://www.npmjs.com/package/inquirer) se facilitó la creación, modificación, lectura y actualización de alimentos, menus y platos.
 
 A continuación se explica la realización de la práctica
 
@@ -381,4 +381,4 @@ Al realizar la creación del objeto *Mongoose* mediante las intefaces ya definad
 
 - [Express](https://expressjs.com/)
 
-- [Inquire.js](https://www.npmjs.com/package/inquirer)
+- [Inquirer.js](https://www.npmjs.com/package/inquirer)
