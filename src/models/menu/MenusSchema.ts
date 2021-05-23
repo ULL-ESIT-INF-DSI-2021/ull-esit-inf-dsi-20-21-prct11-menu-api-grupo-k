@@ -15,7 +15,7 @@ const subListPreGroupSchema = new mongoose.Schema({
   },
 });
 
-const PlatesSchemaNoUnique = new mongoose.Schema({
+export const PlatesSchemaNoUnique = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
