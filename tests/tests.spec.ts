@@ -244,8 +244,6 @@ async function mainMenu(operacion: string, url: string) {
   return response;
 };
 
-
-
 // Pruebas
 describe('Tests para el CRUD de menu-app:', () => {
 
