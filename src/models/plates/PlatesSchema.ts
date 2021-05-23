@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
+import {AlimentSchema} from '../aliments/AlimentsSchema';
 import {PlatesInterface} from './PlatesInterface';
 
 const subPreGroupSchema = new mongoose.Schema({
@@ -16,7 +17,7 @@ const subPreGroupSchema = new mongoose.Schema({
 
 const subIngredientsSchema = new mongoose.Schema({
   aliment: {
-    type: String,
+    type: AlimentSchema,
     trim: true,
     required: true,
   },

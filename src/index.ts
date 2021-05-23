@@ -37,7 +37,7 @@ export async function waitPrompt(): Promise<void> {
 
 // Main Menu
 function displayMenu(): void {
-  console.log('\nRestaurante Puchini\n');
+  console.log('\nGrupo K - Practica 11\n');
 }
 enum MainMenu {
     Ver = 'Ver',

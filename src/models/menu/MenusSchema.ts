@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import * as mongoose from 'mongoose';
+import {PlatesSchema} from '../plates/PlatesSchema';
 import {MenusInterface} from './MenusInterface';
 
 const subListPreGroupSchema = new mongoose.Schema({
@@ -14,17 +15,17 @@ const subListPreGroupSchema = new mongoose.Schema({
   },
 });
 
-const subPlateSchema = new mongoose.Schema({
+/* const subPlateSchema = new mongoose.Schema({
   plate: {
     type: String,
     trim: true,
     required: true,
   },
-});
+});*/
 
 export const MenusSchema = new mongoose.Schema({
   plates: {
-    type: [subPlateSchema],
+    type: [PlatesSchema],
     required: true,
   },
   name: {

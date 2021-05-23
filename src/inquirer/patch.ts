@@ -4,8 +4,8 @@
 import * as inquirer from 'inquirer';
 import {mainPrompt, waitPrompt} from '../index';
 import {patchAlimentPrompt} from './aliments/aliments';
-import {patchMenuPrompt} from './menus/menus';
-import {patchPlatePrompt} from './plates/plates';
+// import {patchMenuPrompt} from './menus/menus';
+// import {patchPlatePrompt} from './plates/plates';
 
 // Modificar Menu
 enum ModMenu {
@@ -27,10 +27,10 @@ export async function modifyPrompt(): Promise<void> {
       patchAlimentPrompt();
       break;
     case ModMenu.Platos:
-      patchPlatePrompt();
+      // patchPlatePrompt();
       break;
     case ModMenu.Menus:
-      patchMenuPrompt();
+      // patchMenuPrompt();
       break;
     case ModMenu.Volver:
       mainPrompt();

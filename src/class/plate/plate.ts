@@ -3,7 +3,7 @@
 import {Aliment, AlimentGroup} from '../aliment/aliment';
 import {NutritionalComposition} from '../interfaces/nutritional_composition';
 
-export enum Category {entree, maincourse, secondcourse, dessert}
+export enum Category {entree = 'Entrante', maincourse = 'Principal', secondcourse = 'Secundario', dessert = 'Postre'}
 
 /**
  * Clase abstracta para representar platos

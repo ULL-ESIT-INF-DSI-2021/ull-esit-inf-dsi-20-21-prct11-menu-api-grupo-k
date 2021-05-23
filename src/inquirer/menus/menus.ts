@@ -4,13 +4,13 @@
 /* eslint-disable no-unused-vars */
 import * as inquirer from 'inquirer';
 import {delay, waitPrompt} from '../..';
-import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
-import {LinkPlates} from '../../index';
-import {alimentModel} from '../../models/aliments/AlimentsSchema';
+// import {Aliment, AlimentGroup} from '../../class/aliment/aliment';
+import {LinkMenus} from '../../index';
+// import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
-let alimentGroup: AlimentGroup = AlimentGroup.meat;
+// let alimentGroup: AlimentGroup = AlimentGroup.meat;
 
-export async function postMenuPrompt(): Promise<void> {
+/* export async function postMenuPrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
     type: 'input',
@@ -132,7 +132,7 @@ export async function postMenuPrompt(): Promise<void> {
   });
   const axios = require('axios').default;
   (async () => {
-    axios.post(LinkPlates, aliment).then(function(response: any) {
+    axios.post(LinkMenus, aliment).then(function(response: any) {
       console.log('Alimento agregado con exito!');
       console.log('Respuesta del servidor: ' + response.status);
     }).catch(function(error: any) {
@@ -141,7 +141,7 @@ export async function postMenuPrompt(): Promise<void> {
     await delay(800);
     waitPrompt();
   })();
-}
+}*/
 
 export async function getMenuPrompt(): Promise<void> {
   console.clear();
@@ -152,12 +152,12 @@ export async function getMenuPrompt(): Promise<void> {
   });
   const axios = require('axios');
   (async () => {
-    axios.get(`${LinkPlates}?name=${nombre['add']}`).then(function(response: any) {
+    axios.get(`${LinkMenus}?name=${nombre['add']}`).then(function(response: any) {
       console.log('Respuesta del servidor: ' + response.status);
-      console.log('Alimento:\n');
+      console.log('Menu:\n');
       console.log(response.data);
     }).catch(function(error: any) {
-      console.log('Alimento no encontrado!');
+      console.log('Menu no encontrado!');
       console.log(error.message);
     });
     await delay(800);
@@ -174,12 +174,12 @@ export async function deleteMenuPrompt(): Promise<void> {
   });
   const axios = require('axios');
   (async () => {
-    axios.delete(`${LinkPlates}?name=${nombre['add']}`).then(function(response: any) {
+    axios.delete(`${LinkMenus}?name=${nombre['add']}`).then(function(response: any) {
       console.log('Respuesta del servidor: ' + response.status);
-      console.log('Alimento eliminado!');
+      console.log('Menu eliminado!');
       console.log(response.data);
     }).catch(function(error: any) {
-      console.log('Alimento no encontrado!');
+      console.log('Menu no encontrado!');
       console.log(error.message);
     });
     await delay(800);
@@ -187,7 +187,7 @@ export async function deleteMenuPrompt(): Promise<void> {
   })();
 }
 
-export async function patchMenuPrompt(): Promise<void> {
+/* export async function patchMenuPrompt(): Promise<void> {
   console.clear();
   console.log('Nombre del alimento a modificar:');
   const nombreMod = await inquirer.prompt({
@@ -332,7 +332,7 @@ export async function patchMenuPrompt(): Promise<void> {
   };
   const axios = require('axios');
   (async () => {
-    axios.patch(`${LinkPlates}?name=${nombreMod['add']}`, aliment).then(function(response: any) {
+    axios.patch(`${LinkMenus}?name=${nombreMod['add']}`, aliment).then(function(response: any) {
       console.log('Respuesta del servidor: ' + response.status);
       console.log('Alimento modificado:\n');
       console.log(response.data);
@@ -343,4 +343,4 @@ export async function patchMenuPrompt(): Promise<void> {
     await delay(800);
     waitPrompt();
   })();
-}
+}*/
