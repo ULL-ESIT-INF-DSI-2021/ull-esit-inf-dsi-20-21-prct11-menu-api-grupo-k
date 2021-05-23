@@ -20,7 +20,7 @@ En esta práctica grupal desarrollaremos una API, haciendo uso de Node/Express, 
 
 ## Observación
 
-- Debido a que la configuracón del [Heroku](https://www.heroku.com/) se realizó con la cuenta del integrante Jose Daniel, y por motivos de tiempo y complicaciones con la plataforma, no pudimos configurar apropiadamente el [Heroku](https://www.heroku.com/) para permitir cuentas multiples. Por esa razón **Se trabajo con SSH a la maquina remota del IaaS de Jose Daniel** para poder así trabajar individualemnte con el Heroku. Por este motivo **La mayoria de los commits van de parte de Jose Daniel**
+Debido a que la configuracón del [Heroku](https://www.heroku.com/) se realizó con la cuenta del integrante Jose Daniel, y por motivos de tiempo y complicaciones con la plataforma, no pudimos configurar apropiadamente el [Heroku](https://www.heroku.com/) para permitir cuentas multiples. Por esa razón **Se trabajo con SSH a la maquina remota del IaaS de Jose Daniel** para poder así trabajar individualemnte con el Heroku. Por este motivo **La mayoria de los commits van de parte de Jose Daniel**
 
 ## Metodología
 
@@ -73,6 +73,12 @@ Utilizando las mismas clases en la práctica 7, se procesdio a cambiar la compos
 La clase *Menu* no ha sufrido cambios
 
 ### Modelos y esquemas Moongose
+
+A continuación se explica lo más relevante de los esquemas y el modelo. Sin embargo se adjuntan los esquemas para mayor profundidad.
+
+- [Aliments](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-k/blob/master/src/models/aliments/AlimentsSchema.ts)
+- [Plates](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-k/blob/master/src/models/plates/PlatesSchema.ts)
+- [Menus](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct11-menu-api-grupo-k/blob/master/src/models/menu/MenusSchema.ts)
 
 - **Aliment**:
 
@@ -334,8 +340,8 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
 
 ### Pruebas Implementadas
 
+![test](img/test/test.jpg)
 ### Cubrimiento del Código
-
 
 
 ## Conclusiones
