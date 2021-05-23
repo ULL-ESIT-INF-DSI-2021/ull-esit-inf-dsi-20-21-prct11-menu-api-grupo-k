@@ -4,6 +4,9 @@ import {plateModel} from '../../models/plates/PlatesSchema';
 
 export const deleteRouterPlates = express.Router();
 
+/**
+ * Router delete de plate
+ */
 deleteRouterPlates.delete('/plates', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

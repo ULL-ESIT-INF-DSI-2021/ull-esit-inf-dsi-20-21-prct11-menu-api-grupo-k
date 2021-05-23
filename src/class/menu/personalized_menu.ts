@@ -1,6 +1,9 @@
 import {Plate} from '../plate/plate';
 import {Menu} from './menu';
 
+/**
+ * Menu personalizado, aquellos que no estan preestablecidos por el local
+ */
 export class PerzonalisedMenu extends Menu {
   constructor(name: string) {
     super(name);

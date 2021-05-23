@@ -4,6 +4,9 @@ import {menuModel} from '../../models/menu/MenusSchema';
 
 export const deleteRouterMenu = express.Router();
 
+/**
+ * Router delete de menu
+ */
 deleteRouterMenu.delete('/menus', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

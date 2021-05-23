@@ -3,6 +3,9 @@ import * as mongoose from 'mongoose';
 import {subIngredientsSchema, subPreGroupSchema} from '../plates/PlatesSchema';
 import {MenusInterface} from './MenusInterface';
 
+/**
+ * Sub esquema de grupo de alimento de menus y cantidad dentro de plato
+ */
 const subListPreGroupSchema = new mongoose.Schema({
   alimentGroup: {
     type: String,
@@ -15,6 +18,9 @@ const subListPreGroupSchema = new mongoose.Schema({
   },
 });
 
+/**
+ * subesquema de los plato no unicos para poder introducirlos en menus
+ * */
 const PlatesSchemaNoUnique = new mongoose.Schema({
   name: {
     type: String,
@@ -126,6 +132,9 @@ const PlatesSchemaNoUnique = new mongoose.Schema({
   },
 });
 
+/**
+ * Esquema de menus con mongoose
+ * */
 export const MenusSchema = new mongoose.Schema({
   plates: {
     type: [PlatesSchemaNoUnique],

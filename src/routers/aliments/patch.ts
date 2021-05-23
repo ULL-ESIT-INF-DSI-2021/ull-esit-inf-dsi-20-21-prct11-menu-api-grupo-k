@@ -5,6 +5,9 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const patchRouterAliments = express.Router();
 
+/**
+ * Router Update de aliment
+ */
 patchRouterAliments.patch('/aliments', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

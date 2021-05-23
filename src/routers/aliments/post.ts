@@ -4,6 +4,9 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 export const postRouterAliments = express.Router();
 
+/**
+ * Router CREATE de aliment
+ */
 postRouterAliments.post('/aliments', (req, res) => {
   const aliment = new alimentModel(req.body);
 

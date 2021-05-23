@@ -10,6 +10,9 @@ import {alimentModel} from '../../models/aliments/AlimentsSchema';
 
 let alimentGroup: AlimentGroup = AlimentGroup.meat;
 
+/**
+ * Funcion para introducir alimentos a la base de datos
+ */
 export async function postAlimentPrompt(): Promise<void> {
   console.clear();
   console.log('Nuevo alimento:');
@@ -144,6 +147,9 @@ export async function postAlimentPrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Funcion para obtener alimentos de la base de datos 
+ * */
 export async function getAlimentPrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -166,6 +172,9 @@ export async function getAlimentPrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Eliminar alimentos de la base de datos
+ */
 export async function deleteAlimentPrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -188,6 +197,9 @@ export async function deleteAlimentPrompt(): Promise<void> {
   })();
 }
 
+/**
+ * modificar alimentos de la base de datos
+ */
 export async function patchAlimentPrompt(): Promise<void> {
   console.clear();
   console.log('Nombre del alimento a modificar:');

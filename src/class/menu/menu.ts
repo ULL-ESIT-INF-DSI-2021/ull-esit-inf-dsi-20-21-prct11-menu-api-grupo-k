@@ -4,6 +4,9 @@ import {AlimentGroup} from '../aliment/aliment';
 import {NutritionalComposition} from '../interfaces/nutritional_composition';
 import {Plate} from '../plate/plate';
 
+/**
+ * representación de la clase menu
+ */
 export abstract class Menu implements NutritionalComposition {
   protected plates: Plate[] = [];
   private price: number = 0;
@@ -20,6 +23,10 @@ export abstract class Menu implements NutritionalComposition {
 
   constructor(private name: string) {}
 
+  /**
+   * Introduce los platos para un menu
+   * @param plates booleano si el menu es válido (posee al menos 3 categorías de platos)
+   */
   abstract setMenu(plates: Plate[]): Boolean ;
 
 

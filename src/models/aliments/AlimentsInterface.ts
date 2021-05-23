@@ -4,6 +4,9 @@ import {Document} from 'mongoose';
 import {AlimentGroup} from '../../class/aliment/aliment';
 import {NutritionalComposition} from '../../class/interfaces/nutritional_composition';
 
+/**
+ * Interfaz de los alimentos para crear el esquema
+ * */
 export interface AlimentsInterface extends Document, NutritionalComposition {
     name: string,
     protein: number,

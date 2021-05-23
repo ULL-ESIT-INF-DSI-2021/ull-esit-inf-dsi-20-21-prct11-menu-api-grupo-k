@@ -6,6 +6,9 @@ import {menuModel} from '../../models/menu/MenusSchema';
 
 export const patchRouterMenu = express.Router();
 
+/**
+ * Router MODIFY de aliment
+ */
 patchRouterMenu.patch('/menus', async (req, res) => {
   if (!req.query.name) {
     return res.status(400).send({

@@ -7,13 +7,18 @@ import {patchAlimentPrompt} from './aliments/aliments';
 import {patchMenuPrompt} from './menus/menus';
 import {patchPlatePrompt} from './plates/plates';
 
-// Modificar Menu
+/**
+ * Modificar Menu
+ * */
 enum ModMenu {
     Alimentos = 'Alimentos',
     Platos = 'Platos',
     Menus = 'Menus',
     Volver = 'Volver'
 }
+/**
+ * Prompt de inquire para modificar alimentos, platos o menus
+ */
 export async function modifyPrompt(): Promise<void> {
   console.clear();
   const answers = await inquirer.prompt({

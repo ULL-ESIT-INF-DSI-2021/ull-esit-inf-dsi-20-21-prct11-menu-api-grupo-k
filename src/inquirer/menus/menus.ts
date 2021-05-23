@@ -7,12 +7,18 @@ import {delay, waitPrompt} from '../..';
 import {LinkMenus} from '../../index';
 
 
+/**
+ * Introducir menus
+ */
 export async function postMenuPrompt(): Promise<void> {
   console.clear();
   console.log('Opcion en desarrollo...\n');
   waitPrompt();
 }
 
+/**
+ * obtener menus
+ */
 export async function getMenuPrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -35,6 +41,9 @@ export async function getMenuPrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Borrar menus
+ */
 export async function deleteMenuPrompt(): Promise<void> {
   console.clear();
   const nombre = await inquirer.prompt({
@@ -57,6 +66,9 @@ export async function deleteMenuPrompt(): Promise<void> {
   })();
 }
 
+/**
+ * Modificar menus
+ */
 export async function patchMenuPrompt(): Promise<void> {
   console.clear();
   console.log('Opcion en desarrollo...\n');

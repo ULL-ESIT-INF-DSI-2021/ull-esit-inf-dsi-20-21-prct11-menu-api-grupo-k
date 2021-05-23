@@ -7,13 +7,18 @@ import {deleteAlimentPrompt} from './aliments/aliments';
 import {deleteMenuPrompt} from './menus/menus';
 import {deletePlatePrompt} from './plates/plates';
 
-// Delete Menu
+/**
+ * Delete Menu
+ */
 enum DeleteMenu {
     Alimentos = 'Alimentos',
     Platos = 'Platos',
     Menus = 'Menus',
     Volver = 'Volver'
   }
+/**
+ * Prompt para borrar
+ */
 export async function deletePrompt(): Promise<void> {
   console.clear();
   const answers = await inquirer.prompt({
