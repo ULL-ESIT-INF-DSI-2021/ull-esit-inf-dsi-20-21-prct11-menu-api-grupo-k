@@ -7,7 +7,7 @@ import {LocalMenu} from '../../src/menu/local_menu';
 import {Plate, Category} from '../../src/plate/plate';
 
 
-describe(`Menu Tests`, () => {
+describe(`Plate Tests`, () => {
   const pollo = new Aliment('Pollo', 10, 20, 12, 0, 32, 0, 0, 0, 70.3, 'Tenerife', 'Santa Cruz', AlimentGroup.meat);
   const patatas_fritas = new Aliment('Patatas fritas', 3, 6.8, 20, 66.8, 472, 65.8, 0.9, 1, 5.9, 'Tenerife', 'Santa Cruz', AlimentGroup.vegetables);
   const zanahoria = new Aliment('Zanahoria', 2, 0.9, 10, 7.3, 40, 0, 7.3, 2.9, 88.7, 'Tenerife', 'Santa Cruz', AlimentGroup.vegetables);
@@ -26,20 +26,11 @@ describe(`Menu Tests`, () => {
   const tomate = new Aliment('Tomate', 4, 2, 3, 5, 21, 5, 6, 4, 5, 'Escocia', 'Escocia', AlimentGroup.vegetables);
   const macarron = new Aliment('Macarron', 2, 2, 3, 4, 5, 6, 9, 1, 2, 'España', 'Madrid', AlimentGroup.cereal);
   const atun = new Aliment('Atun', 5, 9, 3, 4, 5, 6, 9, 1, 2, 'España', 'Madrid', AlimentGroup.fish);
-  const manzana = new Aliment('manzana', 1, 14, 1.34, 0.2, 15, 1.2, 3, 5, 2, 'España', 'Barcelona', AlimentGroup.fruit);
-  const avena = new Aliment('avena', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.cereal);
-  const donuts = new Aliment('donuts', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.milk_derivate);
-  const bizcocho = new Aliment('bizcocho', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.milk_derivate);
   const lechuga = new Aliment('lechuga', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.vegetables);
   const pasta = new Aliment('pasta', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.cereal);
   const carne_cordero = new Aliment('carne de cordero', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.meat);
   const carne_conejo = new Aliment('carne de conejo', 1, 11, 1.2, 0.2, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.meat);
   const harina_maiz = new Aliment('Harina de maiz', 2.80, 1.5, 2.5, 5.9, 13, 0, 5.9, 1.8, 78.8, 'Venezuela', 'Caracas', AlimentGroup.cereal);
-  const churros = new Aliment('Churros', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'Tenerife', 'Santa Cruz', AlimentGroup.cereal);
-  const batido_fresa = new Aliment('Batido de fresa', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'Tenerife', 'Santa cruz', AlimentGroup.fruit);
-  const batido_chocolate = new Aliment('Batido de chocolate', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'Tenerife', 'Santa cruz', AlimentGroup.milk_derivate);
-  const batido_vainilla = new Aliment('Batido de vainilla', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'Tenerife', 'Santa cruz', AlimentGroup.milk_derivate);
-  const huevo_gallina = new Aliment('Huevo de gallina', 2, 4, 12, 20.5, 105, 20.6, 0.73, 1.8, 73.9, 'Tenerife', 'Santa Cruz', AlimentGroup.eggs);
   const base_pizza = new Aliment('Base de Pizza', 2.80, 1.5, 2.5, 5.9, 13, 0, 5.9, 1.8, 78.8, 'Italia', 'Roma', AlimentGroup.cereal);
   const aceite_olivo = new Aliment('Aceite de Olivo', 1, 11, 1.2, 0.5, 2, 1.8, 4, 5, 2, 'España', 'Barcelona', AlimentGroup.vegetables);
 
@@ -70,7 +61,6 @@ describe(`Menu Tests`, () => {
 
   ingredientes.clear();
   ingredientes.set(croquetas_cangrejo, 20);
-  const plato_croquetas = new Plate('Croquetas de cangrejo', ingredientes, Category.entree);
 
   ingredientes.clear();
   ingredientes.set(pollo, 100);
@@ -83,7 +73,6 @@ describe(`Menu Tests`, () => {
   ingredientes.set(Anguila, 60);
   ingredientes.set(Aguacate, 60);
   ingredientes.set(Arroz, 200);
-  const plato_sushi = new Plate('Sushi de mixto', ingredientes, Category.maincourse);
 
   ingredientes.clear();
   ingredientes.set(carne_cordero, 100);
@@ -125,70 +114,54 @@ describe(`Menu Tests`, () => {
   ingredientes.set(pasta, 200);
   ingredientes.set(atun, 300);
   ingredientes.set(tomate, 100);
-  const plato_pastatuna = new Plate('Pastatuna', ingredientes, Category.secondcourse);
 
   ingredientes.clear();
   ingredientes.set(arroz_leche, 100);
   const plato_arrozleche = new Plate('Arroz con leche', ingredientes, Category.dessert);
 
-  ingredientes.clear();
-  ingredientes.set(donuts, 30);
-  ingredientes.set(manzana, 9);
 
-  ingredientes.clear();
-  ingredientes.set(churros, 100);
-  ingredientes.set(batido_chocolate, 10);
+  it('plato_arrozleche.getName() returns value Arroz con leche', () => {
+    expect(plato_arrozleche.getName()).to.equal('Arroz con leche');
+  });
+  it('plato_arrozleche.getPrice() returns value 74.9', () => {
+    expect(plato_arrozleche.getPrice()).to.equal(74.9);
+  });
 
-  ingredientes.clear();
-  ingredientes.set(batido_fresa, 100);
-  ingredientes.set(batido_chocolate, 100);
-  ingredientes.set(batido_vainilla, 100);
-
-  ingredientes.clear();
-  ingredientes.set(batido_vainilla, 100);
-  ingredientes.set(huevo_gallina, 159);
-  ingredientes.set(avena, 120);
-  ingredientes.set(bizcocho, 30);
-
-  const menu_predefinido1 = new LocalMenu('Almuerzo de poseidon');
-  console.log('Menu 1 = ' + menu_predefinido1.setMenu([plato_croquetas, plato_sushi, plato_arrozleche, plato_pastatuna]));
-
-
-  it('menu_predefinido1.getName() returns value Maki Sushi', () => {
-    expect(menu_predefinido1.getName()).to.equal('Almuerzo de poseidon');
+  it('plato_arrozleche.getPredominantAlimentGroup() returns value [["Leche-Derevidaos",100], ["Meat", 60]]', () => {
+    expect(plato_arrozleche.getPredominantAlimentGroup()).to.deep.equal(['Leche-Derevidaos', 100]);
   });
-  it('menu_predefinido1.getPrice() returns value 9.55', () => {
-    expect(menu_predefinido1.getPrice()).to.equal(466.4);
+  it('plato_arrozleche.getCalories() returns value 20.2', () => {
+    expect(plato_arrozleche.getCalories()).to.equal(20.2);
   });
-  it('menu_predefinido1.getPredominantAlimentGroup() returns value ', () => {
-    expect(menu_predefinido1.getAlimentGroupList()).to.deep.equal([['Pescado', 20], ['Semillas', 200], ['Leche-Derevidaos', 100], ['Pescado', 300]]);
+  it('plato_arrozleche.getCarbohydrates() returns value 20', () => {
+    expect(plato_arrozleche.getCarbohydrates()).to.equal(20);
   });
-  it('menu_predefinido1.getCalories() returns value 130.60000000000002', () => {
-    expect(menu_predefinido1.getCalories()).to.equal(130.60000000000002);
+  it('plato_arrozleche.getFats() returns value 3', () => {
+    expect(plato_arrozleche.getFats()).to.equal(3);
   });
-  it('menu_predefinido1.getCarbohydrates() returns value 84.4', () => {
-    expect(menu_predefinido1.getCarbohydrates()).to.equal(113.82000000000001);
+  it('plato_arrozleche.getFiber() returns value 16.3', () => {
+    expect(plato_arrozleche.getFiber()).to.equal(16.3);
   });
-  it('menu_predefinido1.getFats() returns value 84.4', () => {
-    expect(menu_predefinido1.getFats()).to.equal(84.4);
+  it('plato_arrozleche.getProtein() returns value 2', () => {
+    expect(plato_arrozleche.getProtein()).to.equal(2);
   });
-  it('menu_predefinido1.getFiber() returns value 44', () => {
-    expect(menu_predefinido1.getFiber()).to.equal(44);
+  it('plato_arrozleche.getStarch() returns value 110', () => {
+    expect(plato_arrozleche.getStarch()).to.equal(110);
   });
-  it('menu_predefinido1 must return its information', () => {
-    expect(menu_predefinido1.print()).to.be.equal(menu_predefinido1.print());
+  it('plato_arrozleche.getSugars() returns value 3.9', () => {
+    expect(plato_arrozleche.getSugars()).to.equal(3.9);
   });
-  it('menu_predefinido1.getProtein() returns value 34.55', () => {
-    expect(menu_predefinido1.getProtein()).to.equal(34.55);
+  it('plato_arrozleche.getWater() returns value 0.02', () => {
+    expect(plato_arrozleche.getWater()).to.equal(0.02);
   });
-  it('menu_predefinido1.getStarch() returns value 423', () => {
-    expect(menu_predefinido1.getStarch()).to.equal(423);
+  it('plato_arrozleche.getIngredients() returns value Ingrediente: Arroz con leche, Cantidad: 100', () => {
+    expect(plato_arrozleche.getIngredients()).to.equal('Ingrediente: Arroz con leche, Cantidad: 100\n');
   });
-  it('menu_predefinido1.getSugars() returns value 108.9', () => {
-    expect(menu_predefinido1.getSugars()).to.equal(108.9);
+  it('plato must return its information', () => {
+    expect(plato_arrozleche.print()).to.be.equal(plato_arrozleche.print());
   });
-  it('menu_predefinido1.getWater() returns value 12.3', () => {
-    expect(menu_predefinido1.getWater()).to.equal(12.3);
+  it('plato_arrozleche.getCalories() returns value Ingrediente: Arroz con leche, Cantidad: 100', () => {
+    expect(plato_arrozleche.getCalories()).to.equal(20.2);
   });
 });
 

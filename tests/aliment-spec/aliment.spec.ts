@@ -100,6 +100,10 @@ describe(`Aliment Test`, () => {
     expect(pollo.getPriceOfAliment()).to.be.equal(70.3);
   });
 
+  it('Aliment must return its information', () => {
+    expect(pollo.print()).to.be.equal(pollo.print());
+  });
+
   it('Aliment must return its city', () => {
     expect(pollo.getCity()).to.be.equal('Tenerife');
   });
