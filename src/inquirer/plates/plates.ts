@@ -140,7 +140,7 @@ export async function postPlatePrompt(): Promise<void> {
         console.log('Plato agregado con exito!');
         console.log('Respuesta del servidor: ' + response.status);
       }).catch(function(error: any) {
-        console.log(error);
+        console.log(error.message);
       });
       await delay(800);
       waitPrompt();
