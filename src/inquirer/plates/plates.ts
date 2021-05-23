@@ -219,7 +219,6 @@ export async function patchPlatePrompt(): Promise<void> {
   });
   console.clear();
   console.log('Nuevos atributos:');
-  console.log('Nombre:');
   const nombre = await inquirer.prompt({
     type: 'input',
     name: 'add',
