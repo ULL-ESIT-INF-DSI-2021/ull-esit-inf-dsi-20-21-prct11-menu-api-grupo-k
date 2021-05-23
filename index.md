@@ -338,7 +338,11 @@ Cabe destacar que se utilizan los siguiente opciones para realizar las operacion
     - DELETE 404 (al no existir el alimento)
   - ![get200](img/crud/menu/delete/404.png)
 
-### Inquire.JS
+### Inquirer.JS
+
+Como implemetación adicional, hemos incluido Inquierer.js a la práctica, realizando la peticiones a través de este. Una demostración se podrá demostrar en el video, en el [min 9:36](https://www.youtube.com/watch?v=4fysho3FjVw)
+
+
 
 
 
